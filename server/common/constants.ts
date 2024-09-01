@@ -1,4 +1,4 @@
-export const APP_NAME = 'CATAPULT';
+export const APP_NAME = 'DOMITORY';
 
 export const ID_NAME_LIST = ['user', 'task'] as const;
 
