@@ -66,3 +66,7 @@
   background-color: #636e72; /* ホバー時に少し明るいグレーへ */
   transform: translateY(-2px); /* ボタンが浮き上がる効果 */
 }
+
+.link {
+  color: blue;
+}

@@ -13,7 +13,11 @@ const Home = () => {
       <div className={styles.sidebarContainer}>
         <div className={styles.sidebar}>
           <h3 className={styles.title}>予約</h3>
-          <p className={styles.paragraph}>施設の予約はこちらから行えます。</p>
+          施設の予約は
+          <a href="http://localhost:3000/reservation" className={styles.link}>
+            こちら
+          </a>
+          から行えます。
         </div>
         <div className={styles.sidebarRight}>
           <h3 className={styles.title}>ルール</h3>

@@ -87,7 +87,7 @@ Docker の Inbucket に仮想メールが届くため任意のメールアドレ
 - [Render](https://render.com)
 - [Railway](https://railway.app)
 
-### 外部連携サービス
+### 外部連携サービスa
 
 - AWS Cognito
 - AWS S3 or Cloudflare R2
