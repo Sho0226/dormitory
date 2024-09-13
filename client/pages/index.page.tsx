@@ -8,7 +8,13 @@ const Home = () => {
       </div>
       <div className={styles.box2}>
         <h2 className={styles.title}>おしらせ</h2>
-        <p className={styles.paragraph}>新しいルールやイベント情報をこちらで確認できます。</p>
+        <p className={styles.paragraph}>
+          新しいルールやイベント情報を
+          <a href="http://localhost:3000/information" className={styles.link}>
+            こちら
+          </a>
+          で確認できます。
+        </p>
       </div>
       <div className={styles.sidebarContainer}>
         <div className={styles.sidebar}>
@@ -21,10 +27,19 @@ const Home = () => {
         </div>
         <div className={styles.sidebarRight}>
           <h3 className={styles.title}>ルール</h3>
-          <p className={styles.paragraph}>寮で守るべきルールはこちらを確認してください。</p>
+          <p className={styles.paragraph}>
+            寮で守るべきルールは
+            <a href="http://localhost:3000/rule" className={styles.link}>
+              こちら
+            </a>
+            を確認してください。
+          </p>
         </div>
       </div>
-      <button className={styles.button}>もっと詳しく</button> {/* クラスを追加 */}
+      <button className={styles.button}>
+        <a href="http://localhost:3000/more">もっと詳しく</a>
+      </button>{' '}
+      {/* クラスを追加 */}
     </div>
   );
 };
