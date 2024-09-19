@@ -51,6 +51,7 @@
     "node": ">=20.0.0"
   },
   "dependencies": {
-    "lucide-react": "^0.441.0"
+    "lucide-react": "^0.441.0",
+    "openai": "^4.62.1"
   }
 }
