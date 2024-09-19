@@ -11,7 +11,6 @@ export default defineController(() => ({
         body: { response: responseText },
       };
     } catch (error) {
-      console.error('Error in streamChatCompletion:', error);
       return {
         status: 500,
         body: { error: 'Internal Server Error' },
