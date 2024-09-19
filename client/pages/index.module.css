@@ -1,68 +1,214 @@
 .container {
   display: flex;
   flex-direction: column;
-  padding: 20px;
-  font-family: Roboto, sans-serif; /* モダンで洗練されたフォント */
-  background-color: #f0f4f8; /* 全体の背景をライトグレーに */
+  min-height: 100vh;
+  font-family: Roboto, 'Noto Sans JP', sans-serif;
+  color: #333;
+  background-color: #f4f5f7;
 }
 
-.box1,
-.box2 {
-  padding: 20px;
-  margin-bottom: 20px;
-  background-color: #fff; /* 白背景 */
-  border: 1px solid #dfe6e9; /* グラデーションの代わりにボーダーを使ってアクセント */
-  border-radius: 10px;
-  box-shadow: 0 4px 12px rgb(0 0 0 / 10%); /* 柔らかいシャドウで立体感 */
-  transition: transform 0.2s ease; /* ホバー時のアニメーション */
-}
-
-.box1:hover,
-.box2:hover {
-  transform: translateY(-5px); /* ボックスが浮き上がるようにアニメーション */
-}
-
-.sidebarContainer {
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
   display: flex;
-  gap: 20px;
+  align-items: center;
   justify-content: space-between;
+  padding: 1rem;
+  color: white;
+  background-color: #1e40af;
 }
 
-.sidebar,
-.sidebarRight {
-  width: 48%;
-  padding: 20px;
-  background-color: #fff; /* 白背景 */
-  border: 1px solid #dfe6e9;
-  border-radius: 10px;
-  box-shadow: 0 4px 12px rgb(0 0 0 / 10%); /* 同じくシャドウで奥行き感 */
-}
-
-.title {
-  font-size: 26px;
+.mainTitle {
+  font-size: 1.25rem;
   font-weight: 700;
-  color: #2d3436; /* メインテキストはダークグレーでモダンに */
 }
 
-.paragraph {
-  color: #636e72; /* サブテキストはミディアムグレーで落ち着かせる */
+.menuButton {
+  font-size: 1.5rem;
+  color: white;
+  cursor: pointer;
+  background: none;
+  border: none;
+}
+
+.nav {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  left: 0;
+  z-index: 999;
+  display: none;
+  flex-direction: column;
+  background-color: #1e3a8a;
+}
+
+.navOpen {
+  display: flex;
+}
+
+.navLink {
+  padding: 1rem;
+  color: white;
+  text-decoration: none;
+  border-bottom: 1px solid rgb(255 255 255 / 10%);
+}
+
+.navLink:last-child {
+  border-bottom: none;
+}
+
+.main {
+  flex-grow: 1;
+  padding: 1rem;
+}
+
+.section {
+  padding: 1rem;
+  margin-bottom: 1rem;
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgb(0 0 0 / 10%);
+}
+
+.sectionTitle {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+  margin-bottom: 0.75rem;
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: #1e40af;
+}
+
+.icon {
+  width: 1.125rem;
+  height: 1.125rem;
+}
+
+.list {
+  padding: 0;
+  margin: 0;
+  list-style-type: none;
+}
+
+.listItem {
+  padding: 0.75rem 0;
+  font-size: 0.875rem;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.listItem:last-child {
+  border-bottom: none;
+}
+
+.facilityGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.5rem;
+}
+
+.facilityButton {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 0.75rem;
+  font-size: 0.75rem;
+  cursor: pointer;
+  background-color: #e2e8f0;
+  border: none;
+  border-radius: 8px;
+  transition: background-color 0.3s ease;
+}
+
+.facilityButton:hover,
+.facilityButton:focus {
+  background-color: #cbd5e1;
+}
+
+.facilityIcon {
+  width: 1.5rem;
+  height: 1.5rem;
+  margin-bottom: 0.25rem;
 }
 
 .button {
+  display: block;
   width: 100%;
-  padding: 15px;
-  margin-top: 20px;
-  font-size: 18px;
+  padding: 0.75rem;
+  margin-top: 1rem;
+  font-size: 1rem;
   color: white;
-  background-color: #2d3436; /* ダークグレーのボタン */
+  cursor: pointer;
+  background-color: #1e40af;
   border: none;
-  border-radius: 5px;
-  transition:
-    background-color 0.2s ease,
-    transform 0.2s ease;
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
 }
 
-.button:hover {
-  background-color: #636e72; /* ホバー時に少し明るいグレーへ */
-  transform: translateY(-2px); /* ボタンが浮き上がる効果 */
+.button:hover,
+.button:focus {
+  background-color: #1e3a8a;
+}
+
+.footer {
+  padding: 1rem;
+  font-size: 0.75rem;
+  color: white;
+  text-align: center;
+  background-color: #1e40af;
+}
+
+@media (width >= 640px) {
+  .header {
+    padding: 1rem 2rem;
+  }
+
+  .mainTitle {
+    font-size: 1.5rem;
+  }
+
+  .menuButton {
+    display: none;
+  }
+
+  .nav {
+    position: static;
+    display: flex;
+    flex-direction: row;
+    background-color: transparent;
+  }
+
+  .navLink {
+    padding: 0.5rem 1rem;
+    border-bottom: none;
+  }
+
+  .main {
+    max-width: 768px;
+    padding: 2rem;
+    margin: 0 auto;
+  }
+
+  .section {
+    padding: 1.5rem;
+    margin-bottom: 2rem;
+  }
+
+  .sectionTitle {
+    font-size: 1.25rem;
+  }
+
+  .listItem {
+    font-size: 1rem;
+  }
+
+  .facilityButton {
+    font-size: 0.875rem;
+  }
+
+  .footer {
+    font-size: 0.875rem;
+  }
 }
