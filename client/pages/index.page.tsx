@@ -1,12 +1,13 @@
 'use client';
 
 import { Bell, Book, Calendar, Menu, Music, Users, Utensils, Video, X } from 'lucide-react';
+import Link from 'next/link';
 import { useState } from 'react';
 import { Button } from '../components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '../components/ui/card';
 import styles from './index.module.css';
 
-export default function Component() {
+export default function Rules() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
@@ -19,18 +20,18 @@ export default function Component() {
           {isMenuOpen ? <X className={styles.menuIcon} /> : <Menu className={styles.menuIcon} />}
         </button>
         <nav className={`${styles.nav} ${isMenuOpen ? styles.navOpen : ''}`}>
-          <a href="#announcements" className={styles.navLink} onClick={toggleMenu}>
+          <Link href="/announcements" className={styles.navLink} onClick={toggleMenu}>
             お知らせ
-          </a>
-          <a href="#facilities" className={styles.navLink} onClick={toggleMenu}>
+          </Link>
+          <Link href="/facilities" className={styles.navLink} onClick={toggleMenu}>
             施設予約
-          </a>
-          <a href="#events" className={styles.navLink} onClick={toggleMenu}>
+          </Link>
+          <Link href="/events" className={styles.navLink} onClick={toggleMenu}>
             イベント
-          </a>
-          <a href="#rules" className={styles.navLink} onClick={toggleMenu}>
+          </Link>
+          <Link href="/rules" className={styles.navLink} onClick={toggleMenu}>
             寮則
-          </a>
+          </Link>
         </nav>
       </header>
 
@@ -152,7 +153,9 @@ export default function Component() {
               <li className={styles.listItem}>静粛時間：22:00 - 7:00</li>
               <li className={styles.listItem}>来客制限：共用エリアのみ（要事前申請）</li>
             </ul>
-            <Button className={`${styles.button} ${styles.outlineButton}`}>寮則全文を見る</Button>
+            <Link href="/rules">
+              <Button className={`${styles.button} ${styles.outlineButton}`}>寮則全文を見る</Button>{' '}
+            </Link>
             <Button
               className={styles.button}
               onClick={() =>
