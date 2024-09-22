@@ -14,7 +14,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 1rem;
+  padding: 0.75rem;
   color: white;
   background-color: #1e40af;
 }
@@ -25,11 +25,17 @@
 }
 
 .menuButton {
+  padding: 0.5rem;
   font-size: 1.5rem;
   color: white;
   cursor: pointer;
   background: none;
   border: none;
+}
+
+.menuIcon {
+  width: 1.5rem;
+  height: 1.5rem;
 }
 
 .nav {
@@ -49,6 +55,7 @@
 
 .navLink {
   padding: 1rem;
+  font-size: 1rem;
   color: white;
   text-decoration: none;
   border-bottom: 1px solid rgb(255 255 255 / 10%);
@@ -63,19 +70,17 @@
   padding: 1rem;
 }
 
-.section {
-  padding: 1rem;
+.card {
   margin-bottom: 1rem;
   background-color: white;
   border-radius: 8px;
   box-shadow: 0 2px 4px rgb(0 0 0 / 10%);
 }
 
-.sectionTitle {
+.cardTitle {
   display: flex;
   gap: 0.5rem;
   align-items: center;
-  margin-bottom: 0.75rem;
   font-size: 1.125rem;
   font-weight: 600;
   color: #1e40af;
@@ -104,8 +109,8 @@
 
 .facilityGrid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 0.5rem;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.75rem;
 }
 
 .facilityButton {
@@ -113,6 +118,8 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  height: auto;
+  aspect-ratio: 1 / 1;
   padding: 0.75rem;
   font-size: 0.75rem;
   cursor: pointer;
@@ -133,11 +140,22 @@
   margin-bottom: 0.25rem;
 }
 
+.facilityName {
+  text-align: center;
+  word-break: break-word;
+}
+
+.note {
+  margin-top: 0.75rem;
+  font-size: 0.75rem;
+  color: #64748b;
+}
+
 .button {
   display: block;
   width: 100%;
   padding: 0.75rem;
-  margin-top: 1rem;
+  margin-top: 0.75rem;
   font-size: 1rem;
   color: white;
   cursor: pointer;
@@ -152,6 +170,30 @@
   background-color: #1e3a8a;
 }
 
+.secondaryButton {
+  background-color: #4b5563;
+}
+
+.secondaryButton:hover,
+.secondaryButton:focus {
+  background-color: #374151;
+}
+
+.outlineButton {
+  color: #1e40af;
+  background-color: transparent;
+  border: 1px solid #1e40af;
+}
+
+.outlineButton:hover,
+.outlineButton:focus {
+  background-color: rgb(30 64 175 / 10%);
+}
+
+.rulesList {
+  margin-bottom: 1rem;
+}
+
 .footer {
   padding: 1rem;
   font-size: 0.75rem;
@@ -162,7 +204,7 @@
 
 @media (width >= 640px) {
   .header {
-    padding: 1rem 2rem;
+    padding: 1rem;
   }
 
   .mainTitle {
@@ -191,12 +233,11 @@
     margin: 0 auto;
   }
 
-  .section {
-    padding: 1.5rem;
+  .card {
     margin-bottom: 2rem;
   }
 
-  .sectionTitle {
+  .cardTitle {
     font-size: 1.25rem;
   }
 
@@ -204,7 +245,15 @@
     font-size: 1rem;
   }
 
+  .facilityGrid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
   .facilityButton {
+    font-size: 0.875rem;
+  }
+
+  .note {
     font-size: 0.875rem;
   }
 
