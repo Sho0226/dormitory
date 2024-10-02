@@ -41,38 +41,13 @@
       }
     },
     "/openai": {
-      "post": {
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "type": "object",
-                "properties": {
-                  "question": {
-                    "type": "string"
-                  }
-                },
-                "required": [
-                  "question"
-                ]
-              }
-            }
-          }
-        },
+      "get": {
         "responses": {
           "2XX": {
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "object",
-                  "properties": {
-                    "response": {
-                      "type": "string"
-                    }
-                  },
-                  "required": [
-                    "response"
-                  ]
+                  "type": "string"
                 }
               }
             }

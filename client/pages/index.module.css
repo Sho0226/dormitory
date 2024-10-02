@@ -261,3 +261,26 @@
     font-size: 0.875rem;
   }
 }
+
+.floorSelection {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 20px;
+}
+
+.floorButton {
+  padding: 10px 20px;
+  background-color: #f0f0f0;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.floorButton:hover {
+  background-color: #e0e0e0;
+}
+
+.activeFloor {
+  background-color: #0070f3;
+  color: white;
+}
