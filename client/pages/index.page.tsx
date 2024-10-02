@@ -73,37 +73,37 @@ export default function AIHousePortal() {
             施設予約
           </h2>
           <div className={styles.floorSelection}>
-    {['2F', '3F', '4F', '5F'].map((floor) => (
-      <button
-        key={floor}
-        className={`${styles.floorButton} ${selectedFloor === floor ? styles.activeFloor : ''}`}
-        onClick={() => setSelectedFloor(floor)}
-      >
-        {floor}
-      </button>
-    ))}
-  </div>
+            {['2F', '3F', '4F', '5F'].map((floor) => (
+              <button
+                key={floor}
+                className={`${styles.floorButton} ${selectedFloor === floor ? styles.activeFloor : ''}`}
+                onClick={() => setSelectedFloor(floor)}
+              >
+                {floor}
+              </button>
+            ))}
+          </div>
 
-  {/* 施設ボタン */}
-  <div className={styles.facilityGrid}>
-    {/* 選択した階に応じた部屋を表示 */}
-    {roomsByFloor[selectedFloor].map((room) => (
-      <button key={room} className={styles.facilityButton}>
-        <Users className={styles.facilityIcon} />
-        <span className={styles.facilityName}>{room}</span>
-      </button>
-    ))}
+          {/* 施設ボタン */}
+          <div className={styles.facilityGrid}>
+            {/* 選択した階に応じた部屋を表示 */}
+            {roomsByFloor[selectedFloor].map((room) => (
+              <button key={room} className={styles.facilityButton}>
+                <Users className={styles.facilityIcon} />
+                <span className={styles.facilityName}>{room}</span>
+              </button>
+            ))}
 
-    {/* 常に表示されるAI-StudioとMusic Room */}
-    <button className={styles.facilityButton}>
-      <Video className={styles.facilityIcon} />
-      <span className={styles.facilityName}>AI-Studio</span>
-    </button>
-    <button className={styles.facilityButton}>
-      <Music className={styles.facilityIcon} />
-      <span className={styles.facilityName}>Music Room</span>
-    </button>
-  </div>
+            {/* 常に表示されるAI-StudioとMusic Room */}
+            <button className={styles.facilityButton}>
+              <Video className={styles.facilityIcon} />
+              <span className={styles.facilityName}>AI-Studio</span>
+            </button>
+            <button className={styles.facilityButton}>
+              <Music className={styles.facilityIcon} />
+              <span className={styles.facilityName}>Music Room</span>
+            </button>
+          </div>
           <p className={styles.note}>※予約できる部屋は最大２時間使える(目安)</p>
           <button
             className={styles.button}
