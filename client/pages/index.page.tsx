@@ -49,7 +49,7 @@ export default function AIHousePortal() {
 
     for (const node of textNodes) {
       try {
-        const response = await apiClient.get({
+        const response = await apiClient.openai.get({
           query: {
             text: node.nodeValue || '',
             targetLanguage: selectedLanguage === 'ja' ? 'en' : 'ja',

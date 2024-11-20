@@ -12,7 +12,7 @@ import type { DefineMethods } from 'aspida';
 export type Methods = DefineMethods<{
   get: {
     query: {
-      text: string;
+      text: string | null;
       targetLanguage: string;
     };
     resBody: string; // GETリクエストのレスポンスボディは文字列型
