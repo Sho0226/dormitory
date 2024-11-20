@@ -11,6 +11,10 @@ import type { DefineMethods } from 'aspida';
 
 export type Methods = DefineMethods<{
   get: {
-    resBody: string;
+    query: {
+      text: string;
+      targetLanguage: string;
+    };
+    resBody: string; // GETリクエストのレスポンスボディは文字列型
   };
 }>;
