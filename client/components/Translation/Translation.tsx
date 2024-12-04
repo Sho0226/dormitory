@@ -9,7 +9,8 @@ interface LanguageOption {
 const languageOptions: LanguageOption[] = [
   { code: 'ja', label: '日本語' },
   { code: 'en', label: 'English' },
-  { code: 'zh', label: '中文' },
+  { code: 'zh_cn', label: '中文（简体字）' },
+  { code: 'zh_tw', label: '中文（繁體字）' },
   { code: 'ko', label: '한국어' },
 ];
 
