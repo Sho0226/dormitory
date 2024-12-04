@@ -1,5 +1,4 @@
-'use client';
-
+import LanguageSwitcher from 'components/Translation/Translation';
 import {
   Bell,
   Book,
@@ -14,13 +13,11 @@ import {
 } from 'lucide-react';
 import Link from 'next/link';
 import { useState } from 'react';
-import { apiClient } from 'utils/apiClient';
 import styles from './index.module.css';
 
 export default function AIHousePortal() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [selectedFloor, setSelectedFloor] = useState('2F');
-  const [selectedLanguage, setSelectedLanguage] = useState<'ja' | 'en'>('ja'); // 言語状態管理
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
 
   const roomsByFloor: { [key: string]: string[] } = {
@@ -28,45 +25,6 @@ export default function AIHousePortal() {
     '3F': ['tamokuteki1', 'tamokuteki2', 'Study1', 'Study2'],
     '4F': ['tamokuteki1', 'tamokuteki2', 'Study1', 'Study2'],
     '5F': ['tamokuteki1', 'tamokuteki2', 'Study1', 'Study2'],
-  };
-
-  // ページ内のすべてのテキストノードを取得
-  const getTextNodes = (): Node[] => {
-    const walker = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT, null);
-    const textNodes: Node[] = [];
-    let node;
-    while ((node = walker.nextNode())) {
-      if (node.nodeValue?.trim()) {
-        textNodes.push(node);
-      }
-    }
-    return textNodes;
-  };
-
-  // ページ全体のテキストを選択された言語に翻訳
-  const translatePage = async () => {
-    const textNodes = getTextNodes();
-
-    for (const node of textNodes) {
-      try {
-        const response = await apiClient.openai.get({
-          query: {
-            text: node.nodeValue || '',
-            targetLanguage: selectedLanguage === 'ja' ? 'en' : 'ja',
-          },
-        });
-        node.nodeValue = response.body; // 翻訳されたテキストで置き換え
-      } catch (error) {
-        console.error('Translation error:', error);
-      }
-    }
-  };
-
-  // 言語切り替えボタンが押されたときに呼ばれる関数
-  const toggleLanguage = () => {
-    const newLanguage = selectedLanguage === 'ja' ? 'en' : 'ja';
-    setSelectedLanguage(newLanguage); // 言語状態を更新
-    translatePage(); // ページ全体を新しい言語で翻訳
   };
 
   return (
@@ -77,9 +35,7 @@ export default function AIHousePortal() {
           {isMenuOpen ? <X className={styles.menuIcon} /> : <Menu className={styles.menuIcon} />}
         </button>
         <nav className={`${styles.nav} ${isMenuOpen ? styles.navOpen : ''}`}>
-          <button onClick={toggleLanguage}>
-            {selectedLanguage === 'ja' ? 'Switch to English' : '日本語に切り替え'}
-          </button>
+          <LanguageSwitcher />
           <Link href="https://toyo.749.cc/aihouse/" className={styles.navLink} onClick={toggleMenu}>
             ホームページ
           </Link>
