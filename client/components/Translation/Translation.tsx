@@ -74,7 +74,7 @@ export const LanguageSwitcher = () => {
 
   return (
     <div ref={dropdownRef} className="languageSwitcher">
-      <button onClick={toggleDropdown}>{selectedLanguage === 'ja' ? 'Translation' : '翻訳'}</button>
+      <button onClick={toggleDropdown}>{selectedLanguage === 'ja' ? '翻訳' : 'Translation'}</button>
       {isOpen && (
         <ul className="languageDropdown">
           {languageOptions.map((lang) => (

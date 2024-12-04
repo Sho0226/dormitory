@@ -12,6 +12,10 @@ export const preserveTerms: Record<string, TranslationPair> = {
     en: 'AI House',
     ja: 'AI House',
   },
+  翻訳: {
+    en: 'Translation',
+    ja: '翻訳',
+  },
   Homepage: {
     en: 'Homepage',
     ja: 'ホームページ',
