@@ -198,9 +198,17 @@ export default function AIHousePortal() {
             <li className={styles.listItem}>施設・設備について</li>
             <li className={styles.listItem}>教育プログラムについて</li>
           </ul>
-          <Link href="https://toyo.749.cc/inquiry/ai-house-inquiry/">
-            <button className={styles.button}>お問い合わせフォーム</button>
-          </Link>
+          <button
+            className={styles.button}
+            onClick={() =>
+              window.open(
+                'https://docs.google.com/forms/d/e/1FAIpQLSd14yq1hROVw4VX5g38JBcxUdjLKPugGD2hWRKu3wsVQiWqDQ/viewform',
+                '_blank',
+              )
+            }
+          >
+            寮生向けお問い合わせフォーム
+          </button>
           <Link href="/faq">
             <button className={`${styles.button} ${styles.outlineButton}`}>FAQ全文を見る</button>
           </Link>
