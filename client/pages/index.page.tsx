@@ -35,7 +35,6 @@ export default function AIHousePortal() {
           {isMenuOpen ? <X className={styles.menuIcon} /> : <Menu className={styles.menuIcon} />}
         </button>
         <nav className={`${styles.nav} ${isMenuOpen ? styles.navOpen : ''}`}>
-          <LanguageSwitcher />
           <Link href="https://toyo.749.cc/aihouse/" className={styles.navLink} onClick={toggleMenu}>
             ホームページ
           </Link>
@@ -51,6 +50,9 @@ export default function AIHousePortal() {
           <Link href="/rules" className={styles.navLink} onClick={toggleMenu}>
             寮則
           </Link>
+          <div className={styles.navLink}>
+            <LanguageSwitcher />
+          </div>
         </nav>
       </header>
 
