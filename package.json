@@ -51,6 +51,7 @@
     "node": ">=20.0.0"
   },
   "dependencies": {
+    "exponential-backoff": "^3.1.1",
     "lucide-react": "^0.441.0",
     "next": "^14.2.14",
     "openai": "^4.62.1"
