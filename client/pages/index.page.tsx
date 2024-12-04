@@ -24,10 +24,10 @@ export default function AIHousePortal() {
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
 
   const roomsByFloor: { [key: string]: string[] } = {
-    '2F': ['tamokuteki1', 'tamokuteki2', 'study1', 'study2'],
-    '3F': ['tamokuteki1', 'tamokuteki2', 'study1', 'study2'],
-    '4F': ['tamokuteki1', 'tamokuteki2', 'study1', 'study2'],
-    '5F': ['tamokuteki1', 'tamokuteki2', 'study1', 'study2'],
+    '2F': ['tamokuteki1', 'tamokuteki2', 'Study1', 'Study2'],
+    '3F': ['tamokuteki1', 'tamokuteki2', 'Study1', 'Study2'],
+    '4F': ['tamokuteki1', 'tamokuteki2', 'Study1', 'Study2'],
+    '5F': ['tamokuteki1', 'tamokuteki2', 'Study1', 'Study2'],
   };
 
   // ページ内のすべてのテキストノードを取得
@@ -234,7 +234,7 @@ export default function AIHousePortal() {
             <HelpCircle className={styles.icon} />
             お問い合わせ&FAQ
           </h2>
-          <p className={styles.listItem}>よくある質問と回答をご確認ください。</p>
+          <p className={styles.listItem}>よくある質問と回答をご確認ください</p>
           <ul className={styles.list}>
             <li className={styles.listItem}>入居条件について</li>
             <li className={styles.listItem}>セキュリティーとサポート</li>
