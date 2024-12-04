@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react';
+import { useState } from 'react';
 import { apiClient } from 'utils/apiClient';
 
 interface LanguageOption {
@@ -10,33 +10,16 @@ const languageOptions: LanguageOption[] = [
   { code: 'ja', label: '日本語' },
   { code: 'en', label: 'English' },
   { code: 'zh', label: '中文' },
-  { code: 'ko', label: '번역' },
+  { code: 'ko', label: '한국어' },
 ];
 
 export const LanguageSwitcher = () => {
-  const [isOpen, setIsOpen] = useState(false);
   const [selectedLanguage, setSelectedLanguage] = useState('ja');
-  const dropdownRef = useRef<HTMLDivElement>(null);
 
-  useEffect(() => {
-    const handleClickOutside = (event: MouseEvent) => {
-      if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
-        setIsOpen(false);
-      }
-    };
-
-    document.addEventListener('click', handleClickOutside);
-    return () => document.removeEventListener('click', handleClickOutside);
-  }, []);
-
-  const toggleDropdown = () => {
-    setIsOpen(!isOpen);
-  };
-
-  const handleLanguageSelect = (langCode: string) => {
-    setSelectedLanguage(langCode);
-    setIsOpen(false);
-    translatePage(langCode); // 言語選択時にページを翻訳
+  const handleLanguageChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
+    const newLanguage = event.target.value;
+    setSelectedLanguage(newLanguage);
+    translatePage(newLanguage); // 言語選択時にページを翻訳
   };
 
   const getTextNodes = (): Node[] => {
@@ -73,17 +56,14 @@ export const LanguageSwitcher = () => {
   };
 
   return (
-    <div ref={dropdownRef} className="languageSwitcher">
-      <button onClick={toggleDropdown}>{selectedLanguage === 'ja' ? '翻訳' : 'Translation'}</button>
-      {isOpen && (
-        <ul className="languageDropdown">
-          {languageOptions.map((lang) => (
-            <li key={lang.code} onClick={() => handleLanguageSelect(lang.code)}>
-              {lang.label}
-            </li>
-          ))}
-        </ul>
-      )}
+    <div className="languageSwitcher">
+      <select value={selectedLanguage} onChange={handleLanguageChange} className="switchButton">
+        {languageOptions.map((lang) => (
+          <option key={lang.code} value={lang.code}>
+            {lang.label}
+          </option>
+        ))}
+      </select>
     </div>
   );
 };
