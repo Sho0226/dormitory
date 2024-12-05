@@ -1,7 +1,7 @@
-import { ChevronDown, ChevronLeft, ChevronUp } from 'lucide-react';
-import { useRouter } from 'next/router';
-import { useState } from 'react';
-import styles from './rule.module.css';
+import { ChevronDown, ChevronLeft, ChevronUp } from "lucide-react";
+import { useRouter } from "next/router";
+import { useState } from "react";
+import styles from "./rule.module.css";
 
 // Section コンポーネントが id を受け取り、それを適用するように修正
 const Section = ({
@@ -17,11 +17,15 @@ const Section = ({
 
   return (
     <div className={styles.section} id={id}>
-      {' '}
+      {" "}
       {/* id をここで適用 */}
       <h2 className={styles.sectionTitle} onClick={() => setIsOpen(!isOpen)}>
         {title}
-        {isOpen ? <ChevronUp className={styles.icon} /> : <ChevronDown className={styles.icon} />}
+        {isOpen ? (
+          <ChevronUp className={styles.icon} />
+        ) : (
+          <ChevronDown className={styles.icon} />
+        )}
       </h2>
       {isOpen && <div className={styles.sectionContent}>{children}</div>}
     </div>
@@ -76,7 +80,8 @@ export default function RuleBook() {
       <Section title="1. AI-House HUB-4 の施設概要" id="overview">
         <h3>1.1 AI-House HUB-4 のコンセプト</h3>
         <p>
-          AI-House HUB-4 は 2022 年 3 月にオープンした東洋大学の新しい国際交流宿舎です。
+          AI-House HUB-4 は 2022 年 3
+          月にオープンした東洋大学の新しい国際交流宿舎です。
           異なる文化的・社会的背景を持つ仲間と共同生活を送り、異文化に対する理解やコミュニケーション能力、
           共生する力を伸ばすことを目標とする宿舎です。
         </p>
@@ -94,7 +99,9 @@ export default function RuleBook() {
           <li>外国人の客員教員及び客員研究員</li>
           <li>研究機関、研究センター等で受け入れた外国人大学院生</li>
           <li>本学が主催する短期受入プログラムに参加する者</li>
-          <li>その他国際交流推進のため国際教育センター長又は所管長が特に認める者</li>
+          <li>
+            その他国際交流推進のため国際教育センター長又は所管長が特に認める者
+          </li>
         </ul>
         {/* 他のサブセクションも同様に追加 */}
       </Section>
@@ -148,14 +155,16 @@ export default function RuleBook() {
 
       <Section title="8. サポートを必要とする学生へ" id="support">
         <h3>8.1 障がいのある学生へのサポート</h3>
-        <p>障がい等の理由により支援を必要とする学生に対し、バリアフリー部屋を用意しています。</p>
+        <p>
+          障がい等の理由により支援を必要とする学生に対し、バリアフリー部屋を用意しています。
+        </p>
         {/* 他のサブセクションを追加 */}
       </Section>
 
       <Section title="9. AI-House HUB-4 へのアクセス" id="access">
         <p>
-          <strong>住所：</strong> 〒115-0053 東京都北区赤羽台 1-7-37 東洋大学 AI-House HUB-4
-          XXX（部屋番号）
+          <strong>住所：</strong> 〒115-0053 東京都北区赤羽台 1-7-37 東洋大学
+          AI-House HUB-4 XXX（部屋番号）
         </p>
         <ul>
           <li>JR 赤羽駅より徒歩 8 分</li>

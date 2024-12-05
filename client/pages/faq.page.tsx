@@ -1,8 +1,8 @@
-import { ChevronDown, ChevronLeft, ChevronUp } from 'lucide-react';
-import Link from 'next/link';
-import { useRouter } from 'next/router';
-import { useState } from 'react';
-import styles from './faq.module.css';
+import { ChevronDown, ChevronLeft, ChevronUp } from "lucide-react";
+import Link from "next/link";
+import { useRouter } from "next/router";
+import { useState } from "react";
+import styles from "./faq.module.css";
 
 const Section = ({
   title,
@@ -19,7 +19,11 @@ const Section = ({
     <div className={styles.section} id={id}>
       <h2 className={styles.sectionTitle} onClick={() => setIsOpen(!isOpen)}>
         {title}
-        {isOpen ? <ChevronUp className={styles.icon} /> : <ChevronDown className={styles.icon} />}
+        {isOpen ? (
+          <ChevronUp className={styles.icon} />
+        ) : (
+          <ChevronDown className={styles.icon} />
+        )}
       </h2>
       {isOpen && <div className={styles.sectionContent}>{children}</div>}
     </div>
@@ -104,7 +108,10 @@ export default function RuleBook() {
         <h3>Q. 館内のセキュリティーについて教えてください。</h3>
         <p>A. 24時間のセキュリティ体制が整っています。</p>
 
-        <h3>Q. レジデント・アシスタント（RA）はどのようなサポートをしてくれますか︖</h3>
+        <h3>
+          Q.
+          レジデント・アシスタント（RA）はどのようなサポートをしてくれますか︖
+        </h3>
         <p>A. 生活の悩みや病気の対応などをサポートします。</p>
       </Section>
 
@@ -113,7 +120,9 @@ export default function RuleBook() {
         <p>A. できません。教育の一部としています。</p>
 
         <h3>Q. ベジタリアンやアレルギー対応はありますか︖</h3>
-        <p>A. ベジタリアンメニューは対応可能ですが、アレルギー対応は難しいです。</p>
+        <p>
+          A. ベジタリアンメニューは対応可能ですが、アレルギー対応は難しいです。
+        </p>
       </Section>
 
       <Section title="4. 施設、設備について" id="facilities">
@@ -136,7 +145,10 @@ export default function RuleBook() {
         <p>A. 最寄りのスーパーは徒歩 5 分、コンビニは徒歩 3 分です。</p>
 
         <h3> 宿舎の周りの雰囲気が知りたい。</h3>
-        <p>A. 気になる⽅は Google ストリートビューで実際に訪れた気分を味わってみてください。</p>
+        <p>
+          A. 気になる⽅は Google
+          ストリートビューで実際に訪れた気分を味わってみてください。
+        </p>
         <Link
           href="https://www.google.com/maps/@35.7802696,139.7172885,3a,90y,313.38h,75.35t/data=!3m6!1e1!3m4!1sfB40omRfWFbYKzRQF-J6Ig!2e0!7i16384!8i8192"
           className={styles.link}

@@ -1,24 +1,24 @@
-import cookie from '@fastify/cookie';
-import fastifyEtag from '@fastify/etag';
-import helmet from '@fastify/helmet';
-import fastifyHttpProxy from '@fastify/http-proxy';
-import type { TokenOrHeader } from '@fastify/jwt';
-import fastifyJwt from '@fastify/jwt';
-import assert from 'assert';
-import { IS_PROD } from 'common/constants';
-import type { FastifyInstance, FastifyRequest } from 'fastify';
-import Fastify from 'fastify';
-import buildGetJwks from 'get-jwks';
-import server from '../$server';
-import { COOKIE_NAME } from './constants';
-import { CustomError } from './customAssert';
+import cookie from "@fastify/cookie";
+import fastifyEtag from "@fastify/etag";
+import helmet from "@fastify/helmet";
+import fastifyHttpProxy from "@fastify/http-proxy";
+import type { TokenOrHeader } from "@fastify/jwt";
+import fastifyJwt from "@fastify/jwt";
+import assert from "assert";
+import { IS_PROD } from "common/constants";
+import type { FastifyInstance, FastifyRequest } from "fastify";
+import Fastify from "fastify";
+import buildGetJwks from "get-jwks";
+import server from "../$server";
+import { COOKIE_NAME } from "./constants";
+import { CustomError } from "./customAssert";
 import {
   API_BASE_PATH,
   COGNITO_POOL_ENDPOINT,
   COGNITO_USER_POOL_CLIENT_ID,
   COGNITO_USER_POOL_ID,
   SERVER_PORT,
-} from './envValues';
+} from "./envValues";
 
 export const init = (): FastifyInstance => {
   const fastify = Fastify();
@@ -32,12 +32,16 @@ export const init = (): FastifyInstance => {
     cookie: { cookieName: COOKIE_NAME, signed: false },
     decode: { complete: true },
     secret: (_: FastifyRequest, token: TokenOrHeader) => {
-      assert('header' in token);
+      assert("header" in token);
       assert(token.payload.aud === COGNITO_USER_POOL_CLIENT_ID);
 
       const domain = `${COGNITO_POOL_ENDPOINT}/${COGNITO_USER_POOL_ID}`;
 
-      return getJwks.getPublicKey({ kid: token.header.kid, domain, alg: token.header.alg });
+      return getJwks.getPublicKey({
+        kid: token.header.kid,
+        domain,
+        alg: token.header.alg,
+      });
     },
   });
 
@@ -45,7 +49,10 @@ export const init = (): FastifyInstance => {
     fastify.register(fastifyHttpProxy, {
       upstream: `http://localhost:${SERVER_PORT + 1}`,
       replyOptions: {
-        rewriteHeaders: (headers) => ({ ...headers, 'content-security-policy': undefined }),
+        rewriteHeaders: (headers) => ({
+          ...headers,
+          "content-security-policy": undefined,
+        }),
       },
     });
   }
@@ -54,7 +61,7 @@ export const init = (): FastifyInstance => {
     console.error(new Date(), err.stack);
 
     reply
-      .status(req.method === 'GET' ? 404 : 403)
+      .status(req.method === "GET" ? 404 : 403)
       .send(err instanceof CustomError ? err.message : undefined);
   });
 
