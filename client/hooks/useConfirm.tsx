@@ -1,8 +1,11 @@
-import { Modal, ModalBody, ModalFooter } from 'components/modal/Modal';
-import { atom, useAtom } from 'jotai';
-import { useCallback } from 'react';
+import { Modal, ModalBody, ModalFooter } from "components/modal/Modal";
+import { atom, useAtom } from "jotai";
+import { useCallback } from "react";
 
-const confirmAtom = atom<{ text: string | null; resolve: null | ((val: boolean) => void) }>({
+const confirmAtom = atom<{
+  text: string | null;
+  resolve: null | ((val: boolean) => void);
+}>({
   text: null,
   resolve: null,
 });
@@ -31,7 +34,7 @@ export const useConfirm = () => {
     confirmElm: confirmParams.text !== null && (
       <Modal open onClose={cancelConfirm}>
         <ModalBody>
-          <div style={{ whiteSpace: 'pre-wrap' }}>{confirmParams.text}</div>
+          <div style={{ whiteSpace: "pre-wrap" }}>{confirmParams.text}</div>
         </ModalBody>
         <ModalFooter cancel={cancelConfirm} okText="OK" ok={agreeConfirm} />
       </Modal>

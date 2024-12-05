@@ -1,6 +1,10 @@
-import type { DefineMethods } from 'aspida';
-import type { MaybeId } from 'common/types/brandedId';
-import type { TaskCreateVal, TaskDto, TaskUpdateDoneDto } from 'common/types/task';
+import type { DefineMethods } from "aspida";
+import type { MaybeId } from "common/types/brandedId";
+import type {
+  TaskCreateVal,
+  TaskDto,
+  TaskUpdateDoneDto,
+} from "common/types/task";
 
 export type Methods = DefineMethods<{
   get: {
@@ -24,7 +28,7 @@ export type Methods = DefineMethods<{
 
   delete: {
     reqBody: {
-      taskId: MaybeId['task'];
+      taskId: MaybeId["task"];
     };
     status: 200;
     resBody: TaskDto;

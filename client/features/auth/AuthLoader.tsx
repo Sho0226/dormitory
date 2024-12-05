@@ -1,19 +1,21 @@
-import { fetchAuthSession, getCurrentUser, signOut } from 'aws-amplify/auth';
-import { Hub } from 'aws-amplify/utils';
-import { isAxiosError } from 'axios';
-import { useLoading } from 'components/loading/useLoading';
-import { useAlert } from 'hooks/useAlert';
-import { useUser } from 'hooks/useUser';
-import { useCallback, useEffect } from 'react';
-import { apiAxios, apiClient } from 'utils/apiClient';
-import { catchApiErr } from 'utils/catchApiErr';
+import { fetchAuthSession, getCurrentUser, signOut } from "aws-amplify/auth";
+import { Hub } from "aws-amplify/utils";
+import { isAxiosError } from "axios";
+import { useLoading } from "components/loading/useLoading";
+import { useAlert } from "hooks/useAlert";
+import { useUser } from "hooks/useUser";
+import { useCallback, useEffect } from "react";
+import { apiAxios, apiClient } from "utils/apiClient";
+import { catchApiErr } from "utils/catchApiErr";
 
 export const AuthLoader = () => {
   const { user, setUser } = useUser();
   const { setLoading } = useLoading();
   const { setAlert } = useAlert();
   const updateCookie = useCallback(async () => {
-    const jwt = await fetchAuthSession().then((e) => e.tokens?.idToken?.toString());
+    const jwt = await fetchAuthSession().then((e) =>
+      e.tokens?.idToken?.toString(),
+    );
 
     if (jwt !== undefined) {
       await apiClient.session.$post({ body: { jwt } }).catch(catchApiErr);
@@ -31,7 +33,12 @@ export const AuthLoader = () => {
 
   useEffect(() => {
     const useId = apiAxios.interceptors.response.use(undefined, async (err) => {
-      if (user.data && isAxiosError(err) && err.response?.status === 401 && err.config) {
+      if (
+        user.data &&
+        isAxiosError(err) &&
+        err.response?.status === 401 &&
+        err.config
+      ) {
         const { config } = err;
         return updateCookie()
           .then(() => apiAxios.request(config))
@@ -46,23 +53,23 @@ export const AuthLoader = () => {
 
   useEffect(() => {
     return Hub.listen(
-      'auth',
+      "auth",
       // eslint-disable-next-line complexity
       async (data) => {
         switch (data.payload.event) {
-          case 'customOAuthState':
-          case 'signInWithRedirect':
-          case 'signInWithRedirect_failure':
-          case 'tokenRefresh':
+          case "customOAuthState":
+          case "signInWithRedirect":
+          case "signInWithRedirect_failure":
+          case "tokenRefresh":
             break;
-          case 'signedOut':
+          case "signedOut":
             await apiClient.session.$delete().catch(catchApiErr);
             setUser(null);
             break;
-          case 'signedIn':
+          case "signedIn":
             await updateCookie().catch(catchApiErr);
             break;
-          case 'tokenRefresh_failure':
+          case "tokenRefresh_failure":
             await signOut();
             break;
           /* v8 ignore next 2 */
