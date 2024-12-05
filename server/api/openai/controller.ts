@@ -17,4 +17,4 @@ export default defineController(() => ({
       return { status: 500, body: 'Translation failed' };
     }
   },
-}));
+

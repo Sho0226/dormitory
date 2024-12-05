@@ -1,7 +1,7 @@
-import { taskUseCase } from 'domain/task/useCase/taskUseCase';
-import { brandedId } from 'service/brandedId';
-import { z } from 'zod';
-import { defineController } from './$relay';
+import { taskUseCase } from "domain/task/useCase/taskUseCase";
+import { brandedId } from "service/brandedId";
+import { z } from "zod";
+import { defineController } from "./$relay";
 
 export default defineController(() => ({
   patch: {
@@ -16,7 +16,10 @@ export default defineController(() => ({
     },
   },
   delete: async ({ user, params }) => {
-    const task = await taskUseCase.delete(user, brandedId.task.maybe.parse(params.taskId));
+    const task = await taskUseCase.delete(
+      user,
+      brandedId.task.maybe.parse(params.taskId),
+    );
 
     return { status: 200, body: task };
   },

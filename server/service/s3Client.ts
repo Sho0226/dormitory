@@ -4,9 +4,9 @@ import {
   ListObjectsV2Command,
   PutObjectCommand,
   S3Client,
-} from '@aws-sdk/client-s3';
-import { getSignedUrl } from '@aws-sdk/s3-request-presigner';
-import type { MultipartFile } from '@fastify/multipart';
+} from "@aws-sdk/client-s3";
+import { getSignedUrl } from "@aws-sdk/s3-request-presigner";
+import type { MultipartFile } from "@fastify/multipart";
 import {
   S3_ACCESS_KEY,
   S3_BUCKET,
@@ -14,7 +14,7 @@ import {
   S3_PUBLIC_ENDPOINT,
   S3_REGION,
   S3_SECRET_KEY,
-} from './envValues';
+} from "./envValues";
 
 export type S3PutParams = { key: string; data: MultipartFile };
 
@@ -24,7 +24,10 @@ export const s3Client = new S3Client({
     ? {
         endpoint: S3_ENDPOINT,
         region: S3_REGION,
-        credentials: { accessKeyId: S3_ACCESS_KEY, secretAccessKey: S3_SECRET_KEY },
+        credentials: {
+          accessKeyId: S3_ACCESS_KEY,
+          secretAccessKey: S3_SECRET_KEY,
+        },
       }
     : {}),
 });

@@ -2,7 +2,7 @@
   display: flex;
   flex-direction: column;
   min-height: 100vh;
-  font-family: Roboto, 'Noto Sans JP', sans-serif;
+  font-family: Roboto, "Noto Sans JP", sans-serif;
   color: #333;
   background-color: #f4f5f7;
 }
@@ -283,4 +283,11 @@
   .footer {
     font-size: 0.875rem;
   }
+}
+
+.loginForm {
+  padding: 20px;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgb(0 0 0 / 10%);
 }

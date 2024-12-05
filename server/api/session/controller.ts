@@ -1,19 +1,19 @@
-import type { CookieSerializeOptions } from '@fastify/cookie';
-import assert from 'assert';
-import { COOKIE_NAME } from 'service/constants';
-import { z } from 'zod';
-import type { Methods } from '.';
-import { defineController } from './$relay';
+import type { CookieSerializeOptions } from "@fastify/cookie";
+import assert from "assert";
+import { COOKIE_NAME } from "service/constants";
+import { z } from "zod";
+import type { Methods } from ".";
+import { defineController } from "./$relay";
 
 export type AdditionalRequest = {
-  body: Methods['post']['reqBody'];
+  body: Methods["post"]["reqBody"];
 };
 
 const options: CookieSerializeOptions = {
   httpOnly: true,
   secure: true,
-  path: '/',
-  sameSite: 'strict',
+  path: "/",
+  sameSite: "strict",
 };
 
 export default defineController((fastify) => ({
@@ -36,7 +36,7 @@ export default defineController((fastify) => ({
         done();
       },
     },
-    handler: () => ({ status: 200, body: { status: 'success' } }),
+    handler: () => ({ status: 200, body: { status: "success" } }),
   },
   delete: {
     hooks: {
@@ -45,6 +45,6 @@ export default defineController((fastify) => ({
         done();
       },
     },
-    handler: () => ({ status: 200, body: { status: 'success' } }),
+    handler: () => ({ status: 200, body: { status: "success" } }),
   },
 }));

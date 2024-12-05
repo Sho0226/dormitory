@@ -1,5 +1,5 @@
-import { Portal } from '../Portal';
-import styles from './Loading.module.css';
+import { Portal } from "../Portal";
+import styles from "./Loading.module.css";
 
 export const Loading = (props: { visible: boolean }) => {
   return props.visible ? (
