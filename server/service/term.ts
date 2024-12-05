@@ -1,4 +1,4 @@
-interface TranslationPair {
+export interface TranslationPair {
   [key: string]: string; // インデックスシグネチャを追加
   en: string;
   ja: string;

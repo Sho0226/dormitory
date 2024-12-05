@@ -20,7 +20,7 @@ export const LanguageSwitcher = () => {
   const handleLanguageChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
     const newLanguage = event.target.value;
     setSelectedLanguage(newLanguage);
-    translatePage(newLanguage); // 言語選択時にページを翻訳
+    translatePage(newLanguage);
   };
 
   const getTextNodes = (): Node[] => {
