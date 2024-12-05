@@ -1,8 +1,8 @@
-import styles from './Btn.module.css';
+import styles from "./Btn.module.css";
 
 export const Btn = (props: {
   text: string;
-  size?: 'small' | 'large';
+  size?: "small" | "large";
   disabled?: boolean;
   onClick: () => void;
 }) => {
@@ -11,9 +11,9 @@ export const Btn = (props: {
       disabled={props.disabled}
       className={[
         styles.btn,
-        props.size === 'small' ? styles.small : styles.large,
+        props.size === "small" ? styles.small : styles.large,
         props.disabled ? styles.disabled : styles.enabled,
-      ].join(' ')}
+      ].join(" ")}
       onClick={props.onClick}
     >
       {props.text}

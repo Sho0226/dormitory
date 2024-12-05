@@ -19,8 +19,8 @@
 //   },
 // }));
 
-import { defineController } from './$relay';
+import { defineController } from "./$relay";
 
 export default defineController(() => ({
-  get: () => ({ status: 200, body: '' }),
+  get: () => ({ status: 200, body: "" }),
 }));

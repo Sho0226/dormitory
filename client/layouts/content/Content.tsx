@@ -1,5 +1,5 @@
-import type { ReactNode } from 'react';
-import styles from './Content.module.css';
+import type { ReactNode } from "react";
+import styles from "./Content.module.css";
 
 export const Content = (props: { width?: number; children: ReactNode }) => {
   return (

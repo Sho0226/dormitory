@@ -1,6 +1,6 @@
-import { atom, useAtom } from 'jotai';
-import { useCallback } from 'react';
-import { Loading } from './Loading';
+import { atom, useAtom } from "jotai";
+import { useCallback } from "react";
+import { Loading } from "./Loading";
 
 const countAtom = atom(0);
 

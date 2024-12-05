@@ -1,13 +1,13 @@
-import { Authenticator } from '@aws-amplify/ui-react';
-import { signUp } from 'aws-amplify/auth';
-import { APP_NAME } from 'common/constants';
-import { Spacer } from 'components/Spacer';
-import { Loading } from 'components/loading/Loading';
-import { useUser } from 'hooks/useUser';
-import { useRouter } from 'next/router';
-import { useEffect } from 'react';
-import { pagesPath, staticPath } from 'utils/$path';
-import styles from './index.module.css';
+import { Authenticator } from "@aws-amplify/ui-react";
+import { signUp } from "aws-amplify/auth";
+import { APP_NAME } from "common/constants";
+import { Spacer } from "components/Spacer";
+import { Loading } from "components/loading/Loading";
+import { useUser } from "hooks/useUser";
+import { useRouter } from "next/router";
+import { useEffect } from "react";
+import { pagesPath, staticPath } from "utils/$path";
+import styles from "./index.module.css";
 
 const Login = () => {
   const { user } = useUser();
@@ -27,7 +27,7 @@ const Login = () => {
           <div className={styles.title}>{APP_NAME}</div>
           <Spacer axis="y" size={36} />
           <Authenticator
-            signUpAttributes={['email']}
+            signUpAttributes={["email"]}
             services={{
               handleSignUp: (input) =>
                 signUp({
