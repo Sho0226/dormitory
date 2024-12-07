@@ -1,0 +1,1 @@
+self.__REACT_LOADABLE_MANIFEST="{\"pages/_app.page.tsx -> ../components/SafeHydrate\":{\"id\":\"pages/_app.page.tsx -> ../components/SafeHydrate\",\"files\":[\"static/chunks/components_SafeHydrate_tsx.js\"]}}"

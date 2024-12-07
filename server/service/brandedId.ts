@@ -1,6 +1,6 @@
-import { ID_NAME_LIST } from 'common/constants';
-import type { DtoId, MaybeId } from 'common/types/brandedId';
-import { z } from 'zod';
+import { ID_NAME_LIST } from "common/constants";
+import type { DtoId, MaybeId } from "common/types/brandedId";
+import { z } from "zod";
 
 type IdName = (typeof ID_NAME_LIST)[number];
 
