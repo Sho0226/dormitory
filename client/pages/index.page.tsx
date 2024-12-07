@@ -1,5 +1,4 @@
-"use client";
-
+import LanguageSwitcher from 'components/Translation/Translation';
 import {
   Bell,
   Book,
@@ -47,10 +46,10 @@ export default function AIHousePortal() {
 
   // フロアごとの部屋リスト
   const roomsByFloor: { [key: string]: string[] } = {
-    "2F": ["tamokuteki1", "tamokuteki2", "study1", "study2"],
-    "3F": ["tamokuteki1", "tamokuteki2", "study1", "study2"],
-    "4F": ["tamokuteki1", "tamokuteki2", "study1", "study2"],
-    "5F": ["tamokuteki1", "tamokuteki2", "study1", "study2"],
+    '2F': ['tamokuteki1', 'tamokuteki2', 'Study1', 'Study2'],
+    '3F': ['tamokuteki1', 'tamokuteki2', 'Study1', 'Study2'],
+    '4F': ['tamokuteki1', 'tamokuteki2', 'Study1', 'Study2'],
+    '5F': ['tamokuteki1', 'tamokuteki2', 'Study1', 'Study2'],
   };
 
   return (
@@ -297,7 +296,6 @@ export default function AIHousePortal() {
                 <li className={styles.listItem}>施設・設備について</li>
                 <li className={styles.listItem}>教育プログラムについて</li>
               </ul>
-
               <button
                 className={styles.button}
                 onClick={() =>
@@ -316,7 +314,6 @@ export default function AIHousePortal() {
               </Link>
             </div>
           </main>
-
           <footer className={styles.footer}>
             &copy; 2023 AI House. For residents' use only.
           </footer>

@@ -42,6 +42,27 @@
     },
     "/openai": {
       "get": {
+        "parameters": [
+          {
+            "name": "text",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": [
+                "null",
+                "string"
+              ]
+            }
+          },
+          {
+            "name": "targetLanguage",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
         "responses": {
           "2XX": {
             "content": {

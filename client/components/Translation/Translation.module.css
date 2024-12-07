@@ -1,0 +1,35 @@
+.languageSwitcher {
+  position: relative;
+  display: inline-block;
+}
+
+.switchButton {
+  padding: 8px 16px;
+  cursor: pointer;
+  background: white;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.languageDropdown {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  z-index: 1000;
+  padding: 0;
+  margin: 4px 0;
+  list-style: none;
+  background: white;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-shadow: 0 2px 4px rgb(0 0 0 / 10%);
+}
+
+.languageOption {
+  padding: 8px 16px;
+  cursor: pointer;
+}
+
+.languageOption:hover {
+  background-color: #f5f5f5;
+}

@@ -52,6 +52,7 @@
     "node": ">=20.0.0"
   },
   "dependencies": {
+    "exponential-backoff": "^3.1.1",
     "@prisma/client": "^6.0.1",
     "lucide-react": "^0.441.0",
     "next": "^14.2.14",
