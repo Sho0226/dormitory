@@ -1,4 +1,4 @@
-import LanguageSwitcher from 'components/Translation/Translation';
+import LanguageSwitcher from "components/Translation/Translation";
 import {
   Bell,
   Book,
@@ -46,10 +46,10 @@ export default function AIHousePortal() {
 
   // フロアごとの部屋リスト
   const roomsByFloor: { [key: string]: string[] } = {
-    '2F': ['tamokuteki1', 'tamokuteki2', 'Study1', 'Study2'],
-    '3F': ['tamokuteki1', 'tamokuteki2', 'Study1', 'Study2'],
-    '4F': ['tamokuteki1', 'tamokuteki2', 'Study1', 'Study2'],
-    '5F': ['tamokuteki1', 'tamokuteki2', 'Study1', 'Study2'],
+    "2F": ["tamokuteki1", "tamokuteki2", "Study1", "Study2"],
+    "3F": ["tamokuteki1", "tamokuteki2", "Study1", "Study2"],
+    "4F": ["tamokuteki1", "tamokuteki2", "Study1", "Study2"],
+    "5F": ["tamokuteki1", "tamokuteki2", "Study1", "Study2"],
   };
 
   return (
@@ -144,6 +144,7 @@ export default function AIHousePortal() {
               >
                 寮則
               </Link>
+              <LanguageSwitcher />
             </nav>
           </header>
 
