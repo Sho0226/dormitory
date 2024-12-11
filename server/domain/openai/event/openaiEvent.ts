@@ -1,18 +1,11 @@
 import { backOff } from "exponential-backoff";
 import { openai } from "service/openai";
-import { preserveTerms, type TranslationPair } from "service/term";
+import { langMap, preserveTerms, type TranslationPair } from "service/term";
 
 // キャッシュ用マップ
 const translationCache = new Map<string, string>();
 
 // 言語マッピング
-const langMap: Record<keyof TranslationPair, string> = {
-  en: "English",
-  ja: "Japanese",
-  zh_cn: "Simplified Chinese",
-  zh_tw: "Traditional Chinese",
-  ko: "Korean",
-};
 
 // Preserve Terms の適用関数
 export function applyPreserveTerms(
