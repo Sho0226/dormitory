@@ -1,12 +1,8 @@
-import type { DefineMethods } from "aspida";
-import type { TranslationPair } from "service/term";
+// import type { DefineMethods } from 'aspida';
 
-export type Methods = DefineMethods<{
-  get: {
-    query: {
-      text: string | null;
-      targetLanguage: keyof TranslationPair;
-    };
-    resBody: string; // GETリクエストのレスポンスボディは文字列型
-  };
-}>;
+// export type Methods = DefineMethods<{
+//   post: {
+//     reqBody: { question: string };
+//     resBody: { response: string };
+//   };
+// }>;

@@ -1,26 +1,27 @@
 import { useState } from "react";
 import { apiClient } from "utils/apiClient";
+import type * as deepl from "deepl-node";
 
 interface LanguageOption {
-  code: string;
+  code: deepl.TargetLanguageCode;
   label: string;
 }
 
 const languageOptions: LanguageOption[] = [
   { code: "ja", label: "日本語" },
-  { code: "en", label: "English" },
-  { code: "zh_cn", label: "中文（简体字）" },
-  { code: "zh_tw", label: "中文（繁體字）" },
+  { code: "en-US", label: "English" },
+  { code: "zh", label: "中文（简体字）" },
   { code: "ko", label: "한국어" },
 ];
 
 export const LanguageSwitcher = () => {
-  const [selectedLanguage, setSelectedLanguage] = useState("ja");
+  const [selectedLanguage, setSelectedLanguage] =
+    useState<deepl.TargetLanguageCode>("ja");
 
   const handleLanguageChange = (
     event: React.ChangeEvent<HTMLSelectElement>,
   ) => {
-    const newLanguage = event.target.value;
+    const newLanguage = event.target.value as deepl.TargetLanguageCode;
     setSelectedLanguage(newLanguage);
     translatePage(newLanguage);
   };
@@ -41,12 +42,12 @@ export const LanguageSwitcher = () => {
     return textNodes;
   };
 
-  const translatePage = async (targetLanguage: string) => {
+  const translatePage = async (targetLanguage: deepl.TargetLanguageCode) => {
     const textNodes = getTextNodes();
 
     for (const node of textNodes) {
       try {
-        const response = await apiClient.openai.get({
+        const response = await apiClient.deepl.get({
           query: {
             text: node.nodeValue || "",
             targetLanguage,

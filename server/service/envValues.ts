@@ -26,11 +26,12 @@ const S3_BUCKET = z.string().parse(process.env.S3_BUCKET ?? "");
 const S3_PUBLIC_ENDPOINT =
   z.string().url().optional().parse(process.env.S3_PUBLIC_ENDPOINT) ??
   `${S3_ENDPOINT}/${S3_BUCKET}`;
-const S3_ACCESS_KEY = z.string().parse(process.env.S3_ACCESS_KEY ?? '');
-const S3_SECRET_KEY = z.string().parse(process.env.S3_SECRET_KEY ?? '');
-const S3_REGION = z.string().parse(process.env.S3_REGION ?? '');
+const S3_ACCESS_KEY = z.string().parse(process.env.S3_ACCESS_KEY ?? "");
+const S3_SECRET_KEY = z.string().parse(process.env.S3_SECRET_KEY ?? "");
+const S3_REGION = z.string().parse(process.env.S3_REGION ?? "");
 const OPENAI_BASE_URL = z.string().url().parse(process.env.OPENAI_BASE_URL);
 const OPENAI_KEY = z.string().parse(process.env.OPENAI_KEY);
+const DeepL_KEY = z.string().parse(process.env.NEXT_PUBLIC_DEEPL_AUTH_KEY);
 
 export {
   API_BASE_PATH,
@@ -46,4 +47,5 @@ export {
   S3_REGION,
   S3_SECRET_KEY,
   SERVER_PORT,
+  DeepL_KEY,
 };
