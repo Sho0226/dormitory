@@ -301,12 +301,13 @@ export default function AIHousePortal() {
                   className={`${styles.facilityGrid} ${floor} ${getClassName(selectedFloor, floor)}`}
                 >
                   {/*  選択した階に応じた部屋を表示  */}
-                  {roomsByFloor[selectedFloor].map((room) => (
-                    <button key={room} className={styles.facilityButton}>
+                  {roomsByFloor[selectedFloor].map((room, index) => (
+                    <button
+                      key={`${selectedFloor}-${index}`}
+                      className={styles.facilityButton}
+                    >
                       <Users className={styles.facilityIcon} />
-                      <span className={styles.facilityName}>
-                        {floor} {room}
-                      </span>
+                      <span className={styles.facilityName}>{room}</span>
                     </button>
                   ))}
                 </div>
