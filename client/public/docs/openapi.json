@@ -73,6 +73,21 @@
         }
       }
     },
+    "/openai": {
+      "get": {
+        "responses": {
+          "2XX": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/private": {
       "get": {
         "responses": {
