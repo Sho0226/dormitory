@@ -294,3 +294,36 @@
   border-radius: 8px;
   box-shadow: 0 4px 6px rgb(0 0 0 / 10%);
 }
+
+.linkButton {
+  color: #0070f3;
+  text-decoration: none;
+  font-weight: bold;
+  transition: color 0.3s ease;
+}
+
+.linkButton:hover {
+  color: #005bb5;
+}
+
+.secondaryButton {
+  background-color: #0073e6; /* 鮮やかなブルー */
+  color: #ffffff; /* 白文字 */
+  border: none;
+  padding: 12px 20px; /* 上下・左右の余白 */
+  font-size: 16px; /* フォントサイズ */
+  font-weight: bold; /* 太字 */
+  border-radius: 8px; /* 角丸 */
+  cursor: pointer; /* クリックできることを示す */
+  transition: background-color 0.3s, box-shadow 0.3s; /* なめらかなホバー効果 */
+  margin-top: 20px; /* 上側の余白 */
+}
+
+.secondaryButton:hover {
+  background-color: #005bb5; /* ホバー時に少し濃いブルー */
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2); /* 軽い影を追加 */
+}
+
+.secondaryButton:focus {
+  outline: 3px solid #80bfff; /* フォーカス時の視認性向上 */
+}
