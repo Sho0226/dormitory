@@ -12,6 +12,7 @@ tsconfig.tsbuildinfo
 npm-debug.log*
 
 # client
+client/client/.next/
 client/.next/
 client/out/
 client/api/*
