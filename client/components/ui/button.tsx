@@ -1,15 +1,16 @@
-import React from 'react';
-import styles from './button.module.css';
+import React from "react";
+import styles from "./button.module.css";
 
-export interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
-  variant?: 'default' | 'outline';
+export interface ButtonProps
+  extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+  variant?: "default" | "outline";
 }
 
 const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
-  ({ className, variant = 'default', ...props }, ref) => {
+  ({ className, variant = "default", ...props }, ref) => {
     return (
       <button
-        className={`${styles.button} ${styles[variant]} ${className || ''}`}
+        className={`${styles.button} ${styles[variant]} ${className || ""}`}
         ref={ref}
         {...props}
       />
@@ -17,6 +18,6 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
   },
 );
 
-Button.displayName = 'Button';
+Button.displayName = "Button";
 
 export { Button };
