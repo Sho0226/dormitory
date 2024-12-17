@@ -28,7 +28,7 @@ export default function AIHousePortal() {
 
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
   const getClassName = (selectedFloor: string, floor: string) => {
-      return selectedFloor === floor ? styles.isActive : styles.notActive;
+    return selectedFloor === floor ? styles.isActive : styles.notActive;
   };
 
   // 入力フォームの変更をハンドリングする関数
@@ -154,7 +154,8 @@ export default function AIHousePortal() {
           <main className={styles.main}>
             <div className={styles.card}>
               <h2 className={styles.cardTitle}>
-                <Bell className={styles.icon} /> 重要なお知らせ
+                <Bell className={styles.icon} />
+                重要なお知らせ
               </h2>
               <ul className={styles.list}>
                 <li className={styles.listItem}>
@@ -171,7 +172,8 @@ export default function AIHousePortal() {
 
             <div className={styles.card}>
               <h2 className={styles.cardTitle}>
-                <Calendar className={styles.icon} /> 施設予約
+                <Calendar className={styles.icon} />
+                施設予約
               </h2>
               <div className={styles.floorSelection}>
                 {["2F", "3F", "4F", "5F"].map((floor) => (
@@ -184,13 +186,23 @@ export default function AIHousePortal() {
                   </button>
                 ))}
               </div>
-              <div className={styles.facilityGrid}>
-                {roomsByFloor[selectedFloor].map((room) => (
-                  <button key={room} className={styles.facilityButton}>
-                    <Users className={styles.facilityIcon} />
-                    <span className={styles.facilityName}>{room}</span>
-                  </button>
-                ))}
+              {["2F", "3F", "4F", "5F"].map((floor) => (
+                <div
+                  className={`${styles.facilityGrid} ${floor} ${getClassName(selectedFloor, floor)}`}
+                >
+                  {/*  選択した階に応じた部屋を表示  */}
+                  {roomsByFloor[selectedFloor].map((room) => (
+                    <button key={room} className={styles.facilityButton}>
+                      <Users className={styles.facilityIcon} />
+                      <span className={styles.facilityName}>
+                        {floor} {room}
+                      </span>
+                    </button>
+                  ))}
+                </div>
+              ))}
+              {/* 常に表示されるAI-StudioとMusic Room  */}
+              <div className={styles.floorSelection}>
                 <button className={styles.facilityButton}>
                   <Video className={styles.facilityIcon} />
                   <span className={styles.facilityName}>AI-Studio</span>
@@ -214,73 +226,36 @@ export default function AIHousePortal() {
               >
                 スタジオ予約フォーム
               </button>
-            ))}
-          </div>
-            {['2F', '3F', '4F', '5F'].map((floor) => (
-                <div className={`${styles.facilityGrid} ${floor} ${getClassName(selectedFloor, floor)}`}>
-                {/*  選択した階に応じた部屋を表示  */}
-                {roomsByFloor[selectedFloor].map((room) => (
-                  <button key={room} className={styles.facilityButton}>
-                    <Users className={styles.facilityIcon} />
-                    <span className={styles.facilityName}>{floor}  {room}</span>
-                  </button>
-                ))}
-
-                </div>
-            ))}
-            {/* 常に表示されるAI-StudioとMusic Room  */}
-            <div className={styles.floorSelection}>
-                <button className={styles.facilityButton}>
-                  <Video className={styles.facilityIcon} />
-                  <span className={styles.facilityName}>AI-Studio</span>
-                </button>
-                <button className={styles.facilityButton}>
-                  <Music className={styles.facilityIcon} />
-                  <span className={styles.facilityName}>Music Room</span>
-                </button>
             </div>
-          <p className={styles.note}>※予約できる部屋は最大２時間使える(目安)</p>
-          <button
-            className={styles.button}
-            onClick={() =>
-              window.open(
-                'https://script.google.com/a/macros/iniad.org/s/AKfycbxIK0Fi0F52y6RZifYt8MtL9FB-HXNKMboxGZSHmhhWOpFVnfdh6jLcEupz7XSlBLe-/exec?room=AI_STUDIO',
-                '_blank',
-              )
-            }
-          >
-            スタジオ予約フォーム
-          </button>
-        </div>
 
-        <div className={styles.card}>
-          <h2 className={styles.cardTitle}>
-            <Utensils className={styles.icon} />
-            食事関連
-          </h2>
-          <button
-            className={styles.button}
-            onClick={() =>
-              window.open(
-                'https://docs.google.com/forms/d/e/1FAIpQLSd14yq1hROVw4VX5g38JBcxUdjLKPugGD2hWRKu3wsVQiWqDQ/viewform',
-                '_blank',
-              )
-            }
-          >
-            お弁当取り置きフォーム
-          </button>
-          <button
-            className={`${styles.button} ${styles.secondaryButton}`}
-            onClick={() =>
-              window.open(
-                'https://docs.google.com/forms/d/e/1FAIpQLSdXDaIyKGLLflPh4c1SH1NdzYdKf8ltKL5DLmdbq2V2VEdYpg/viewform',
-                '_blank',
-              )
-            }
-          >
-            欠食届
-          </button>
-        </div>
+            <div className={styles.card}>
+              <h2 className={styles.cardTitle}>
+                <Utensils className={styles.icon} /> 食事関連
+              </h2>
+              <button
+                className={styles.button}
+                onClick={() =>
+                  window.open(
+                    "https://docs.google.com/forms/d/e/1FAIpQLSd14yq1hROVw4VX5g38JBcxUdjLKPugGD2hWRKu3wsVQiWqDQ/viewform",
+                    "_blank",
+                  )
+                }
+              >
+                お弁当取り置きフォーム
+              </button>
+              <button
+                className={`${styles.button} ${styles.secondaryButton}`}
+                onClick={() =>
+                  window.open(
+                    "https://docs.google.com/forms/d/e/1FAIpQLSdXDaIyKGLLflPh4c1SH1NdzYdKf8ltKL5DLmdbq2V2VEdYpg/viewform",
+                    "_blank",
+                  )
+                }
+              >
+                欠食届
+              </button>
+            </div>
+
             <div className={styles.card}>
               <h2 className={styles.cardTitle}>
                 <Users className={styles.icon} /> イベント情報
