@@ -14,7 +14,7 @@ test(GET(noCookieClient.deepl), async () => {
     expect(res.body).toEqual("こんにちは！");
   } catch (error) {
     const errorMessage =
-      error instanceof Error ? error.message : "Unknown error";
+      error instanceof Error ? JSON.stringify(error) : "Unknown error";
     console.error("Translation error:", errorMessage);
     throw new Error(`DeepL API error: ${errorMessage}`);
   }
