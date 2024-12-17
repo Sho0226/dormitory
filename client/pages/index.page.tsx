@@ -28,6 +28,39 @@ export default function AIHousePortal() {
     studentID: ''
   });
 
+  const [isRegistering, setIsRegistering] = useState(false); // 新規登録の状態
+
+// 新規登録用のデータ
+const [registrationData, setRegistrationData] = useState({
+  name: '',
+  roomNumber: '',
+  password: '',
+  studentID: '',
+  confirmPassword: '',
+});
+
+const handleRegister = (e: React.FormEvent<HTMLFormElement>) => {
+  e.preventDefault();
+
+  if (registrationData.password !== registrationData.confirmPassword) {
+    alert('パスワードが一致しません。');
+    return;
+  }
+
+  // 新規登録処理（API呼び出しなど）
+  console.log('登録データ:', registrationData);
+  setIsLoggedIn(true); // 仮でログイン状態にする
+};
+
+const handleRegisterInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const { name, value } = e.target;
+  setRegistrationData({
+    ...registrationData,
+    [name]: value,
+  });
+};
+
+
   // メニューのトグル
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
 
@@ -39,6 +72,7 @@ export default function AIHousePortal() {
       [name]: value,
     });
   };
+
 
   // ログイン処理
   const handleLogin = (e: React.FormEvent<HTMLFormElement>) => {
@@ -58,45 +92,116 @@ export default function AIHousePortal() {
   return (
     <div className={styles.container}>
       {!isLoggedIn ? (
-        <div className={styles.loginForm}>
-          <h1 className={styles.mainTitle}>AI House Portal ログイン</h1>
-          <form onSubmit={handleLogin}>
-            <input
-              type="text"
-              name="name"
-              placeholder="名前"
-              value={loginFormData.name}
-              onChange={handleLoginInputChange}
-              required
-            />
-            <input
-              type="text"
-              name="roomNumber"
-              placeholder="部屋番号"
-              value={loginFormData.roomNumber}
-              onChange={handleLoginInputChange}
-              required
-            />
-            <input
-              type="password"
-              name="password"
-              placeholder="パスワード"
-              value={loginFormData.password}
-              onChange={handleLoginInputChange}
-              required
-            />
-            <input
-              type="text"
-              name="studentID"
-              placeholder="学籍番号"
-              value={loginFormData.studentID}
-              onChange={handleLoginInputChange}
-              required
-            />
-            <button type="submit" className={styles.button}>ログイン</button>
-          </form>
-        </div>
-      ) : (
+  <div className={styles.loginForm}>
+    <h1 className={styles.mainTitle}>
+      {isRegistering ? 'AI House Portal 新規登録' : 'AI House Portal ログイン'}
+    </h1>
+
+    {/* 新規登録フォーム */}
+    {isRegistering ? (
+      <form onSubmit={handleRegister}>
+        <input
+          type="text"
+          name="name"
+          placeholder="名前"
+          value={registrationData.name}
+          onChange={handleRegisterInputChange}
+          required
+        />
+        <input
+          type="text"
+          name="roomNumber"
+          placeholder="部屋番号"
+          value={registrationData.roomNumber}
+          onChange={handleRegisterInputChange}
+          required
+        />
+        <input
+                type="text"
+                name="studentID"
+                placeholder="学籍番号"
+                value={registrationData.studentID}
+                onChange={handleRegisterInputChange}
+                required
+              />
+        <input
+          type="password"
+          name="password"
+          placeholder="パスワード"
+          value={registrationData.password}
+          onChange={handleRegisterInputChange}
+          required
+        />
+        <input
+          type="password"
+          name="confirmPassword"
+          placeholder="パスワード確認"
+          value={registrationData.confirmPassword}
+          onChange={handleRegisterInputChange}
+          required
+        />
+        <button type="submit" className={styles.button}>登録</button>
+      </form>
+    ) : (
+      // ログインフォーム
+      <form onSubmit={handleLogin}>
+        <input
+          type="text"
+          name="name"
+          placeholder="名前"
+          value={loginFormData.name}
+          onChange={handleLoginInputChange}
+          required
+        />
+        <input
+          type="text"
+          name="roomNumber"
+          placeholder="部屋番号"
+          value={loginFormData.roomNumber}
+          onChange={handleLoginInputChange}
+          required
+        />
+        <input
+          type="text"
+          name="studentID"
+          placeholder="学籍番号"   // 学籍番号用のプレースホルダを追加
+          value={loginFormData.studentID} // 学籍番号の値をバインド
+          onChange={handleLoginInputChange}
+          required
+        />
+        <input
+          type="password"
+          name="password"
+          placeholder="パスワード"
+          value={loginFormData.password}
+          onChange={handleLoginInputChange}
+          required
+        />
+        <button type="submit" className={styles.button}>ログイン</button>
+      </form>
+    )}
+
+    {/* 新規登録とログイン切り替え */}
+    <button
+  className={styles.secondaryButton}
+  onClick={() => setIsRegistering(!isRegistering)}
+>
+  {isRegistering ? 'アカウントをお持ちの方はこちら' : '新規登録はこちら'}
+</button>
+
+
+    {/* パスワードを忘れた場合 */}
+    {!isRegistering && (
+      <button
+        className={styles.linkButton}
+        onClick={() => alert('パスワードリセットリンクを送信します')}
+      >
+        パスワードをお忘れですか？
+      </button>
+    )}
+  </div>
+) : (
+
         <div>
           <header className={styles.header}>
             <h1 className={styles.mainTitle}>AI House Portal</h1>
