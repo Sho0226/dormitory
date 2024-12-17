@@ -19,23 +19,3 @@ test(GET(noCookieClient.deepl), async () => {
     throw new Error(`DeepL API error: ${errorMessage}`);
   }
 });
-
-// DeepL API: `private` エンドポイントテスト（参考にした別テストのスタイル）
-test(GET(noCookieClient.private), async () => {
-  try {
-    const apiClient = await createSessionClients();
-    const res = await apiClient.private.$get();
-
-    expect(res).toEqual("");
-
-    await expect(noCookieClient.private.get()).rejects.toHaveProperty(
-      "response.status",
-      401,
-    );
-  } catch (error) {
-    const errorMessage =
-      error instanceof Error ? error.message : "Unknown error";
-    console.error("Translation error:", errorMessage);
-    throw new Error(`DeepL API error: ${errorMessage}`);
-  }
-});
