@@ -16,6 +16,7 @@ client/.next/
 client/out/
 client/api/*
 **/*.css.d.ts*
+client/client/.next/
 
 # server
 server/index.js*
