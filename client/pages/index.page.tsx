@@ -141,7 +141,7 @@ export default function AIHousePortal() {
                 イベント
               </Link>
               <Link
-                href="/rules"
+                href="/rule"
                 className={styles.navLink}
                 onClick={toggleMenu}
               >

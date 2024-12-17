@@ -1,7 +1,7 @@
 import { ChevronDown, ChevronLeft, ChevronUp } from "lucide-react";
 import { useRouter } from "next/router";
 import { useState } from "react";
-import styles from "./rule.module.css";
+import styles from "./index.module.css";
 
 // Section コンポーネントが id を受け取り、それを適用するように修正
 const Section = ({
