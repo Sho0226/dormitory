@@ -2,7 +2,7 @@ import { ChevronDown, ChevronLeft, ChevronUp } from "lucide-react";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { useState } from "react";
-import styles from "./faq.module.css";
+import styles from "./index.module.css";
 
 const Section = ({
   title,
