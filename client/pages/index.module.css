@@ -6,6 +6,7 @@
   color: #333;
   background-color: #f4f5f7;
 }
+
 .header {
   position: sticky;
   top: 0;
@@ -170,12 +171,27 @@
 }
 
 .secondaryButton {
-  background-color: #4b5563;
+  padding: 12px 20px; /* 上下・左右の余白 */
+  margin-top: 20px; /* 上側の余白 */
+  font-size: 16px; /* フォントサイズ */
+  font-weight: bold; /* 太字 */
+  color: #fff; /* 白文字 */
+  cursor: pointer; /* クリックできることを示す */
+  background-color: #0073e6; /* 鮮やかなブルー */
+  border: none;
+  border-radius: 8px; /* 角丸 */
+  transition:
+    background-color 0.3s,
+    box-shadow 0.3s; /* なめらかなホバー効果 */
 }
 
-.secondaryButton:hover,
+.secondaryButton:hover {
+  background-color: #005bb5; /* ホバー時に少し濃いブルー */
+  box-shadow: 0 4px 6px rgb(0 0 0 / 20%); /* 軽い影を追加 */
+}
+
 .secondaryButton:focus {
-  background-color: #374151;
+  outline: 3px solid #80bfff; /* フォーカス時の視認性向上 */
 }
 
 .outlineButton {
@@ -201,7 +217,8 @@
   background-color: #1e40af;
 }
 
-.floorSelection , .isActive {
+.floorSelection,
+.isActive {
   display: flex;
   justify-content: space-around;
   margin-bottom: 20px;
@@ -296,34 +313,12 @@
 }
 
 .linkButton {
+  font-weight: bold;
   color: #0070f3;
   text-decoration: none;
-  font-weight: bold;
   transition: color 0.3s ease;
 }
 
 .linkButton:hover {
   color: #005bb5;
-}
-
-.secondaryButton {
-  background-color: #0073e6; /* 鮮やかなブルー */
-  color: #ffffff; /* 白文字 */
-  border: none;
-  padding: 12px 20px; /* 上下・左右の余白 */
-  font-size: 16px; /* フォントサイズ */
-  font-weight: bold; /* 太字 */
-  border-radius: 8px; /* 角丸 */
-  cursor: pointer; /* クリックできることを示す */
-  transition: background-color 0.3s, box-shadow 0.3s; /* なめらかなホバー効果 */
-  margin-top: 20px; /* 上側の余白 */
-}
-
-.secondaryButton:hover {
-  background-color: #005bb5; /* ホバー時に少し濃いブルー */
-  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2); /* 軽い影を追加 */
-}
-
-.secondaryButton:focus {
-  outline: 3px solid #80bfff; /* フォーカス時の視認性向上 */
 }

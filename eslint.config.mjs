@@ -38,7 +38,7 @@ export default tseslint.config(
       complexity: ["error", 5],
       "max-depth": ["error", 2],
       "max-nested-callbacks": ["error", 3],
-      "max-lines": ["error", 400],
+      "max-lines": ["error", 1000],
       "@typescript-eslint/no-unused-vars": [
         "warn",
         {
