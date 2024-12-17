@@ -1,9 +1,9 @@
-import { Portal } from 'components/Portal';
-import { Spacer } from 'components/Spacer';
-import { Btn } from 'components/btn/Btn';
-import type { PropsWithChildren } from 'react';
-import React from 'react';
-import styles from './Modal.module.css';
+import { Portal } from "components/Portal";
+import { Spacer } from "components/Spacer";
+import { Btn } from "components/btn/Btn";
+import type { PropsWithChildren } from "react";
+import React from "react";
+import styles from "./Modal.module.css";
 
 export const ModalHeader = (props: { text: string }) => {
   return <div className={styles.header}>{props.text}</div>;
@@ -22,7 +22,10 @@ export const ModalFooter = (
         | { disabledOk: boolean; disabledText?: string }
       ))
   ) &
-    ({ cancelText?: undefined; cancel?: undefined } | { cancelText?: string; cancel: () => void }),
+    (
+      | { cancelText?: undefined; cancel?: undefined }
+      | { cancelText?: string; cancel: () => void }
+    ),
 ) => {
   return (
     <div className={styles.footer}>
@@ -41,19 +44,30 @@ export const ModalFooter = (
         </>
       )}
       {props.cancel && (
-        <Btn size="small" text={props.cancelText ?? 'Cancel'} onClick={props.cancel} />
+        <Btn
+          size="small"
+          text={props.cancelText ?? "Cancel"}
+          onClick={props.cancel}
+        />
       )}
       {props.okText !== undefined && (
         <>
           <Spacer axis="x" size={16} />
-          <Btn size="small" text={props.okText} disabled={props.disabledOk} onClick={props.ok} />
+          <Btn
+            size="small"
+            text={props.okText}
+            disabled={props.disabledOk}
+            onClick={props.ok}
+          />
         </>
       )}
     </div>
   );
 };
 
-export const Modal = (props: PropsWithChildren<{ open: boolean; onClose?: () => void }>) => {
+export const Modal = (
+  props: PropsWithChildren<{ open: boolean; onClose?: () => void }>,
+) => {
   return (
     <Portal>
       {props.open && (

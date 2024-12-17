@@ -1,18 +1,18 @@
-import type { Prisma } from '@prisma/client';
-import controller from 'api/private/tasks/di/controller';
-import type { DtoId } from 'common/types/brandedId';
-import type { UserDto } from 'common/types/user';
-import type { TaskEntity } from 'domain/task/model/taskType';
-import fastify from 'fastify';
-import { brandedId } from 'service/brandedId';
-import { ulid } from 'ulid';
-import { expect, test } from 'vitest';
+import type { Prisma } from "@prisma/client";
+import controller from "api/private/tasks/di/controller";
+import type { DtoId } from "common/types/brandedId";
+import type { UserDto } from "common/types/user";
+import type { TaskEntity } from "domain/task/model/taskType";
+import fastify from "fastify";
+import { brandedId } from "service/brandedId";
+import { ulid } from "ulid";
+import { expect, test } from "vitest";
 
-test('Dependency Injection', async () => {
+test("Dependency Injection", async () => {
   const user: UserDto = {
     id: brandedId.user.dto.parse(ulid()),
-    signInName: 'dummy-user',
-    email: 'aa@example.com',
+    signInName: "dummy-user",
+    email: "aa@example.com",
     createdTime: Date.now(),
   };
   const res1 = await controller(fastify()).get({ user });
@@ -21,15 +21,18 @@ test('Dependency Injection', async () => {
 
   const mockedFindManyTask = async (
     _: Prisma.TransactionClient,
-    authorId: DtoId['user'],
+    authorId: DtoId["user"],
   ): Promise<TaskEntity[]> => [
     {
       id: brandedId.task.entity.parse(ulid()),
-      label: 'baz',
+      label: "baz",
       done: false,
       imageKey: undefined,
       createdTime: Date.now(),
-      author: { id: brandedId.user.entity.parse(authorId), signInName: user.signInName },
+      author: {
+        id: brandedId.user.entity.parse(authorId),
+        signInName: user.signInName,
+      },
     },
   ];
 

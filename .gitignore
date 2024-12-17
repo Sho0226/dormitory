@@ -12,6 +12,7 @@ tsconfig.tsbuildinfo
 npm-debug.log*
 
 # client
+client/client/.next/
 client/.next/
 client/out/
 client/api/*
@@ -20,3 +21,4 @@ client/api/*
 # server
 server/index.js*
 server/coverage/
+server/api/@openapi*
