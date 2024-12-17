@@ -8,7 +8,10 @@ export default defineController(() => ({
       const translatedText = await translateText(text, targetLanguage);
       return { status: 200, body: translatedText };
     } catch (error) {
-      return { status: 500, body: "Translation error" };
+      const errorMessage =
+        error instanceof Error ? error.message : "Unknown error";
+      console.error("Translation error:", errorMessage);
+      return { status: 500, body: `Translation error: ${errorMessage}` };
     }
   },
 }));
