@@ -1,4 +1,4 @@
-import styles from './index.module.css'; // 同じスタイルを使用
+import styles from "./index.module.css"; // 同じスタイルを使用
 
 export default function FacilitiesInfo() {
   return (
