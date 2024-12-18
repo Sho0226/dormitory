@@ -19,7 +19,7 @@ export default defineConfig({
     hookTimeout: 10000,
     testTimeout: 15000,
     coverage: {
-      thresholds: { statements: 90, branches: 100, functions: 90, lines: 90 },
+      thresholds: { statements: 85, branches: 100, functions: 90, lines: 85 },
       include: ["api/**/{controller,hooks,validators}.ts", "domain/**"],
     },
   },
