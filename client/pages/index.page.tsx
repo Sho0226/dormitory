@@ -14,6 +14,7 @@ import {
 import Link from "next/link";
 import { useState } from "react";
 import styles from "./index.module.css";
+import AkabaneRecommendations from "components/Akabane/Akabane";
 //eslint-disable-next-line
 export default function AIHousePortal() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -369,13 +370,9 @@ export default function AIHousePortal() {
 
             <div className={styles.card}>
               <h2 className={styles.cardTitle}>
-                <Users className={styles.icon} /> イベント情報
+                <Users className={styles.icon} /> 赤羽の美味しいお店
               </h2>
-              <ul className={styles.list}>
-                <li className={styles.listItem}>6/20 留学生交流会</li>
-                <li className={styles.listItem}>7/1 七夕飾り付け</li>
-                <li className={styles.listItem}>7/15 夏季BBQパーティー</li>
-              </ul>
+              <AkabaneRecommendations />
             </div>
 
             <div className={styles.card}>
