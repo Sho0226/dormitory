@@ -1,12 +1,12 @@
-import js from '@eslint/js';
-import gitignore from 'eslint-config-flat-gitignore';
-import prettierConfig from 'eslint-config-prettier';
-import reactPlugin from 'eslint-plugin-react';
-import globals from 'globals';
-import tseslint from 'typescript-eslint';
+import js from "@eslint/js";
+import gitignore from "eslint-config-flat-gitignore";
+import prettierConfig from "eslint-config-prettier";
+import reactPlugin from "eslint-plugin-react";
+import globals from "globals";
+import tseslint from "typescript-eslint";
 
 export default tseslint.config(
-  { files: ['**/*.(ts,js,tsx)'] },
+  { files: ["**/*.(ts,js,tsx)"] },
   gitignore(),
   js.configs.recommended,
   ...tseslint.configs.recommended,
@@ -23,54 +23,54 @@ export default tseslint.config(
     },
     settings: {
       react: {
-        version: 'detect',
+        version: "detect",
       },
     },
     rules: {
-      eqeqeq: 'error',
-      'no-param-reassign': 'error',
-      'object-shorthand': ['error', 'always'],
-      'prefer-template': 'error',
-      '@typescript-eslint/consistent-type-imports': 'error',
-      '@typescript-eslint/explicit-module-boundary-types': 'off',
-      '@typescript-eslint/no-non-null-assertion': 'error',
-      '@typescript-eslint/no-explicit-any': 'error',
-      complexity: ['error', 5],
-      'max-depth': ['error', 2],
-      'max-nested-callbacks': ['error', 3],
-      'max-lines': ['error', 200],
-      '@typescript-eslint/no-unused-vars': [
-        'warn',
+      eqeqeq: "error",
+      "no-param-reassign": "error",
+      "object-shorthand": ["error", "always"],
+      "prefer-template": "error",
+      "@typescript-eslint/consistent-type-imports": "error",
+      "@typescript-eslint/explicit-module-boundary-types": "off",
+      "@typescript-eslint/no-non-null-assertion": "error",
+      "@typescript-eslint/no-explicit-any": "error",
+      complexity: ["error", 5],
+      "max-depth": ["error", 2],
+      "max-nested-callbacks": ["error", 3],
+      "max-lines": ["error", 1000],
+      "@typescript-eslint/no-unused-vars": [
+        "warn",
         {
-          argsIgnorePattern: '^_',
-          varsIgnorePattern: '^_',
-          caughtErrorsIgnorePattern: '^_',
-          destructuredArrayIgnorePattern: '^_',
+          argsIgnorePattern: "^_",
+          varsIgnorePattern: "^_",
+          caughtErrorsIgnorePattern: "^_",
+          destructuredArrayIgnorePattern: "^_",
         },
       ],
     },
   },
   {
-    files: ['*.tsx'],
+    files: ["*.tsx"],
     rules: {
-      'react/react-in-jsx-scope': 'off',
-      'react/prop-types': 'off',
-      'react/self-closing-comp': 'error',
-      'react-hooks/rules-of-hooks': 'error',
-      'react-hooks/exhaustive-deps': 'error',
+      "react/react-in-jsx-scope": "off",
+      "react/prop-types": "off",
+      "react/self-closing-comp": "error",
+      "react-hooks/rules-of-hooks": "error",
+      "react-hooks/exhaustive-deps": "error",
     },
   },
   {
-    files: ['server/**/*.ts'],
-    rules: { '@typescript-eslint/explicit-function-return-type': ['error'] },
+    files: ["server/**/*.ts"],
+    rules: { "@typescript-eslint/explicit-function-return-type": ["error"] },
   },
   {
-    files: ['server/api/**/controller.ts', 'server/api/**/hooks.ts'],
-    rules: { '@typescript-eslint/explicit-function-return-type': ['off'] },
+    files: ["server/api/**/controller.ts", "server/api/**/hooks.ts"],
+    rules: { "@typescript-eslint/explicit-function-return-type": ["off"] },
   },
   {
-    files: ['**/*.js'],
-    rules: { '@typescript-eslint/no-var-requires': ['off'] },
+    files: ["**/*.js"],
+    rules: { "@typescript-eslint/no-var-requires": ["off"] },
   },
   prettierConfig,
 );

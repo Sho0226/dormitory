@@ -1,7 +1,7 @@
 /** @type {import('next').NextConfig} */
 module.exports = {
   reactStrictMode: true,
-  pageExtensions: ['page.tsx'],
+  pageExtensions: ["page.tsx"],
   trailingSlash: true,
   eslint: { ignoreDuringBuilds: true },
   typescript: { ignoreBuildErrors: true },
@@ -16,4 +16,6 @@ module.exports = {
       destination: `http://localhost:${process.env.NEXT_PUBLIC_SERVER_PORT}${process.env.NEXT_PUBLIC_API_BASE_PATH}/:path*`,
     },
   ],
+  distDir: "client/.next", // ビルド出力先を指定
+  dir: "./client", // ソースディレクトリを指定
 };

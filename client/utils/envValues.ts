@@ -1,6 +1,8 @@
-import { z } from 'zod';
+import { z } from "zod";
 
-const NEXT_PUBLIC_API_BASE_PATH = z.string().parse(process.env.NEXT_PUBLIC_API_BASE_PATH);
+const NEXT_PUBLIC_API_BASE_PATH = z
+  .string()
+  .parse(process.env.NEXT_PUBLIC_API_BASE_PATH);
 const NEXT_PUBLIC_COGNITO_USER_POOL_ID = z
   .string()
   .parse(process.env.NEXT_PUBLIC_COGNITO_USER_POOL_ID);

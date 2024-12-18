@@ -10,6 +10,39 @@
     }
   ],
   "paths": {
+    "/deepl": {
+      "get": {
+        "parameters": [
+          {
+            "name": "text",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "targetLanguage",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "$ref": "#/components/schemas/TargetLanguageCode"
+            }
+          }
+        ],
+        "responses": {
+          "2XX": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/health": {
       "get": {
         "responses": {
@@ -26,6 +59,21 @@
       }
     },
     "/": {
+      "get": {
+        "responses": {
+          "2XX": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/openai": {
       "get": {
         "responses": {
           "2XX": {
@@ -742,6 +790,44 @@
   },
   "components": {
     "schemas": {
+      "TargetLanguageCode": {
+        "description": "Language codes that may be used as a target language.\nNote: although the language code type definitions are case-sensitive, this package and the DeepL\nAPI accept case-insensitive language codes.",
+        "enum": [
+          "ar",
+          "bg",
+          "cs",
+          "da",
+          "de",
+          "el",
+          "en-GB",
+          "en-US",
+          "es",
+          "et",
+          "fi",
+          "fr",
+          "hu",
+          "id",
+          "it",
+          "ja",
+          "ko",
+          "lt",
+          "lv",
+          "nb",
+          "nl",
+          "pl",
+          "pt-BR",
+          "pt-PT",
+          "ro",
+          "ru",
+          "sk",
+          "sl",
+          "sv",
+          "tr",
+          "uk",
+          "zh"
+        ],
+        "type": "string"
+      },
       "Record<\"server\"|\"db\"|\"s3\",\"ok\">": {
         "type": "object",
         "properties": {
