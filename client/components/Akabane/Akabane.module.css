@@ -1,0 +1,28 @@
+.akabaneContainer {
+  padding: 20px;
+  font-family: Arial, sans-serif;
+}
+
+.akabaneButton {
+  padding: 10px 20px;
+  color: #fff;
+  cursor: pointer;
+  background-color: #007bff;
+  border: none;
+  border-radius: 5px;
+}
+
+.akabaneButton.loading {
+  cursor: not-allowed;
+  background-color: #ccc;
+}
+
+.akabaneError {
+  margin-top: 20px;
+  color: red;
+}
+
+.akabaneResponse {
+  margin-top: 20px;
+  white-space: pre-wrap;
+}
