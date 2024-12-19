@@ -32,6 +32,7 @@ const S3_REGION = z.string().parse(process.env.S3_REGION ?? "");
 const OPENAI_BASE_URL = z.string().url().parse(process.env.OPENAI_BASE_URL);
 const OPENAI_KEY = z.string().parse(process.env.OPENAI_KEY);
 const DeepL_KEY = z.string().parse(process.env.NEXT_PUBLIC_DEEPL_AUTH_KEY);
+const Shop_KEY = z.string().parse(process.env.HOTPEPPER_API_KEY);
 
 export {
   API_BASE_PATH,
@@ -48,4 +49,5 @@ export {
   S3_SECRET_KEY,
   SERVER_PORT,
   DeepL_KEY,
+  Shop_KEY,
 };

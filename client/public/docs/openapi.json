@@ -811,6 +811,21 @@
           }
         }
       }
+    },
+    "/shop": {
+      "get": {
+        "responses": {
+          "2XX": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
     }
   },
   "components": {
