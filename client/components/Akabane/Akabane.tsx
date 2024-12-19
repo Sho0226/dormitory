@@ -7,7 +7,6 @@ const AkabaneRecommendations: React.FC = () => {
   const [response, setResponse] = useState<string>("");
   const [error, setError] = useState<string | null>(null);
 
-  //eslint-disable-next-line
   const fetchRecommendations = async () => {
     setLoading(true);
     setError(null);
@@ -18,11 +17,11 @@ const AkabaneRecommendations: React.FC = () => {
         body: { question: "赤羽でおすすめの美味しいお店を教えてください。" },
       });
 
-      if (!res.body.response) {
+      if (!res.body || !res.body.response) {
         throw new Error("Failed to fetch recommendations.");
-      } else {
-        setResponse(res.body.response);
       }
+
+      setResponse(res.body.response);
     } catch (err) {
       setError((err as Error).message || "An unknown error occurred.");
     } finally {
@@ -32,6 +31,7 @@ const AkabaneRecommendations: React.FC = () => {
 
   return (
     <div className={styles.akabaneContainer}>
+      <h1>赤羽の美味しいお店</h1>
       <p>赤羽でおすすめの美味しいお店を知りたい方はこちら！</p>
 
       <button
