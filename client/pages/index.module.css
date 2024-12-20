@@ -49,44 +49,6 @@
   border-bottom: none;
 }
 
-.facilityButton {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  height: auto;
-  aspect-ratio: 1 / 1;
-  padding: 0.75rem;
-  font-size: 0.75rem;
-  cursor: pointer;
-  background-color: #e2e8f0;
-  border: none;
-  border-radius: 8px;
-  transition: background-color 0.3s ease;
-}
-
-.facilityButton:hover,
-.facilityButton:focus {
-  background-color: #cbd5e1;
-}
-
-.facilityIcon {
-  width: 1.5rem;
-  height: 1.5rem;
-  margin-bottom: 0.25rem;
-}
-
-.facilityName {
-  text-align: center;
-  word-break: break-word;
-}
-
-.note {
-  margin-top: 0.75rem;
-  font-size: 0.75rem;
-  color: #64748b;
-}
-
 .button {
   display: block;
   width: 100%;
@@ -153,34 +115,6 @@
   background-color: #1e40af;
 }
 
-.floorSelection,
-.isActive {
-  display: flex;
-  justify-content: space-around;
-  margin-bottom: 20px;
-}
-
-.floorButton {
-  padding: 10px 20px;
-  cursor: pointer;
-  background-color: #f0f0f0;
-  border: 1px solid #ddd;
-  border-radius: 5px;
-}
-
-.floorButton:hover {
-  background-color: #e0e0e0;
-}
-
-.activeFloor {
-  color: white;
-  background-color: #0070f3;
-}
-
-.notActive {
-  display: none;
-}
-
 @media (width >= 640px) {
   .main {
     max-width: 768px;
@@ -198,18 +132,6 @@
 
   .listItem {
     font-size: 1rem;
-  }
-
-  .facilityGrid {
-    grid-template-columns: repeat(3, 1fr);
-  }
-
-  .facilityButton {
-    font-size: 0.875rem;
-  }
-
-  .note {
-    font-size: 0.875rem;
   }
 
   .footer {
