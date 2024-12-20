@@ -31,7 +31,6 @@ const AkabaneRecommendations: React.FC = () => {
 
   return (
     <div className={styles.akabaneContainer}>
-      <h1>赤羽の美味しいお店</h1>
       <p>赤羽でおすすめの美味しいお店を知りたい方はこちら！</p>
 
       <button

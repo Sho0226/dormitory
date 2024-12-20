@@ -28,10 +28,10 @@ export default function AIHousePortal() {
 
   // フロアごとの部屋リスト
   const roomsByFloor: { [key: string]: string[] } = {
-    "2F": ["tamokuteki1", "tamokuteki2", "Study1", "Study2"],
-    "3F": ["tamokuteki1", "tamokuteki2", "Study1", "Study2"],
-    "4F": ["tamokuteki1", "tamokuteki2", "Study1", "Study2"],
-    "5F": ["tamokuteki1", "tamokuteki2", "Study1", "Study2"],
+    "2F": ["多目的室1", "多目的室2", "学習室1", "学習室2"],
+    "3F": ["多目的室1", "多目的室2", "学習室1", "学習室2"],
+    "4F": ["多目的室1", "多目的室2", "学習室1", "学習室2"],
+    "5F": ["多目的室1", "多目的室2", "学習室1", "学習室2"],
   };
 
   return (
@@ -78,7 +78,7 @@ export default function AIHousePortal() {
               </div>
               {["2F", "3F", "4F", "5F"].map((floor) => (
                 <div
-                  className={`${styles.facilityGrid} ${floor} ${getClassName(selectedFloor, floor)}`}
+                  className={`${floor} ${getClassName(selectedFloor, floor)}`}
                 >
                   {/*  選択した階に応じた部屋を表示  */}
                   {roomsByFloor[selectedFloor].map((room, index) => (
@@ -218,7 +218,7 @@ export default function AIHousePortal() {
             </div>
           </main>
           <footer className={styles.footer}>
-            &copy; 2023 AI House. For residents' use only.
+            &copy; 2024 AI House. For residents' use only.
           </footer>
         </>
       )}
