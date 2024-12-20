@@ -1,4 +1,4 @@
-import { Bell, Book, HelpCircle, Users, Utensils } from "lucide-react";
+import { Bell, Book, HelpCircle, Users } from "lucide-react";
 import Link from "next/link";
 import { useState } from "react";
 import styles from "./index.module.css";
@@ -6,6 +6,7 @@ import AkabaneRecommendations from "components/Akabane/Akabane";
 import Auth from "features/domitoryAuth/Auth";
 import PortalHeader from "components/Header/PortalHeader";
 import Floor from "components/Floor/Floor";
+import Meal from "components/Meal/Meal";
 
 //eslint-disable-next-line
 export default function AIHousePortal() {
@@ -37,34 +38,7 @@ export default function AIHousePortal() {
               </ul>
             </div>
             <Floor />
-
-            <div className={styles.card}>
-              <h2 className={styles.cardTitle}>
-                <Utensils className={styles.icon} /> 食事関連
-              </h2>
-              <button
-                className={styles.button}
-                onClick={() =>
-                  window.open(
-                    "https://docs.google.com/forms/d/e/1FAIpQLSd14yq1hROVw4VX5g38JBcxUdjLKPugGD2hWRKu3wsVQiWqDQ/viewform",
-                    "_blank",
-                  )
-                }
-              >
-                お弁当取り置きフォーム
-              </button>
-              <button
-                className={`${styles.button} ${styles.secondaryButton}`}
-                onClick={() =>
-                  window.open(
-                    "https://docs.google.com/forms/d/e/1FAIpQLSdXDaIyKGLLflPh4c1SH1NdzYdKf8ltKL5DLmdbq2V2VEdYpg/viewform",
-                    "_blank",
-                  )
-                }
-              >
-                欠食届
-              </button>
-            </div>
+            <Meal />
 
             <div className={styles.card}>
               <h2 className={styles.cardTitle}>
