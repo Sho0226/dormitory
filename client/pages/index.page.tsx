@@ -1,30 +1,27 @@
-import LanguageSwitcher from "components/Translation/Translation";
 import {
   Bell,
   Book,
   Calendar,
   HelpCircle,
-  Menu,
   Music,
   Users,
   Utensils,
   Video,
-  X,
 } from "lucide-react";
 import Link from "next/link";
 import { useState } from "react";
 import styles from "./index.module.css";
 import AkabaneRecommendations from "components/Akabane/Akabane";
-import Auth from "features/domitoryAuth/Auth"; // Authコンポーネントをインポート
+import Auth from "features/domitoryAuth/Auth";
+import PortalHeader from "components/Header/PortalHeader";
 
 //eslint-disable-next-line
 export default function AIHousePortal() {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [selectedFloor, setSelectedFloor] = useState("2F");
   const [isLoggedIn, setIsLoggedIn] = useState(false);
 
   // メニューのトグル
-  const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
+
   const getClassName = (selectedFloor: string, floor: string) => {
     return selectedFloor === floor ? styles.isActive : styles.notActive;
   };
@@ -43,57 +40,7 @@ export default function AIHousePortal() {
         <Auth setIsLoggedIn={setIsLoggedIn} />
       ) : (
         <>
-          <header className={styles.header}>
-            <h1 className={styles.mainTitle}>AI House Portal</h1>
-            <button className={styles.menuButton} onClick={toggleMenu}>
-              {isMenuOpen ? (
-                <X className={styles.menuIcon} />
-              ) : (
-                <Menu className={styles.menuIcon} />
-              )}
-            </button>
-            <nav
-              className={`${styles.nav} ${isMenuOpen ? styles.navOpen : ""}`}
-            >
-              <Link
-                href="https://toyo.749.cc/aihouse/"
-                className={styles.navLink}
-                onClick={toggleMenu}
-              >
-                ホームページ
-              </Link>
-              <Link
-                href="/announcements"
-                className={styles.navLink}
-                onClick={toggleMenu}
-              >
-                お知らせ
-              </Link>
-              <Link
-                href="/facilities"
-                className={styles.navLink}
-                onClick={toggleMenu}
-              >
-                施設予約
-              </Link>
-              <Link
-                href="/events"
-                className={styles.navLink}
-                onClick={toggleMenu}
-              >
-                イベント
-              </Link>
-              <Link
-                href="/rule"
-                className={styles.navLink}
-                onClick={toggleMenu}
-              >
-                寮則
-              </Link>
-              <LanguageSwitcher />
-            </nav>
-          </header>
-
+          <PortalHeader />
           <main className={styles.main}>
             <div className={styles.card}>
               <h2 className={styles.cardTitle}>
