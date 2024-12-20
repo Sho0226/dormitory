@@ -304,21 +304,3 @@
     font-size: 0.875rem;
   }
 }
-
-.loginForm {
-  padding: 20px;
-  background-color: #f9f9f9;
-  border-radius: 8px;
-  box-shadow: 0 4px 6px rgb(0 0 0 / 10%);
-}
-
-.linkButton {
-  font-weight: bold;
-  color: #0070f3;
-  text-decoration: none;
-  transition: color 0.3s ease;
-}
-
-.linkButton:hover {
-  color: #005bb5;
-}
