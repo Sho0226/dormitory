@@ -1,4 +1,4 @@
-import { Bell, Book, HelpCircle } from "lucide-react";
+import { Bell, HelpCircle } from "lucide-react";
 import Link from "next/link";
 import { useState } from "react";
 import styles from "./index.module.css";
@@ -7,6 +7,7 @@ import Auth from "features/domitoryAuth/Auth";
 import PortalHeader from "components/Header/PortalHeader";
 import Floor from "components/Floor/Floor";
 import Meal from "components/Meal/Meal";
+import Rule from "components/RuleHighlight/Rule";
 
 //eslint-disable-next-line
 export default function AIHousePortal() {
@@ -44,36 +45,7 @@ export default function AIHousePortal() {
               <AkabaneRecommendations />
             </div>
 
-            <div className={styles.card}>
-              <h2 className={styles.cardTitle}>
-                <Book className={styles.icon} /> 寮則ハイライト
-              </h2>
-              <ul className={`${styles.list} ${styles.rulesList}`}>
-                <li className={styles.listItem}>
-                  門限：平日 23:00 / 休日 24:00
-                </li>
-                <li className={styles.listItem}>静粛時間：22:00 - 7:00</li>
-                <li className={styles.listItem}>
-                  来客制限：共用エリアのみ（要事前申請）
-                </li>
-              </ul>
-              <Link href="/rules">
-                <button className={`${styles.button} ${styles.outlineButton}`}>
-                  寮則全文を見る
-                </button>
-              </Link>
-              <button
-                className={styles.button}
-                onClick={() =>
-                  window.open(
-                    "https://docs.google.com/forms/d/e/1FAIpQLSfc5U6jTvsNvotFIiWqHE3RyinwHZU2y8cT4PQDXhURaOxQ6w/viewform",
-                    "_blank",
-                  )
-                }
-              >
-                外泊届を提出
-              </button>
-            </div>
+            <Rule />
 
             <div className={styles.card}>
               <h2 className={styles.cardTitle}>
