@@ -40,11 +40,7 @@ export default function AIHousePortal() {
             </div>
             <Floor />
             <Meal />
-
-            <div className={styles.card}>
-              <AkabaneRecommendations />
-            </div>
-
+            <AkabaneRecommendations />
             <Rule />
 
             <div className={styles.card}>

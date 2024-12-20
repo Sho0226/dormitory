@@ -57,3 +57,13 @@
   margin-top: 20px;
   white-space: pre-wrap;
 }
+
+@media (width >= 640px) {
+  .card {
+    margin-bottom: 2rem;
+  }
+
+  .cardTitle {
+    font-size: 1.25rem;
+  }
+}

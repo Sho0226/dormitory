@@ -31,32 +31,34 @@ const AkabaneRecommendations: React.FC = () => {
   };
 
   return (
-    <div>
-      <h2 className={styles.cardTitle}>
-        <Users className={styles.icon} /> 赤羽の美味しいお店
-      </h2>
-      <p className={styles.listItem}>
-        赤羽でおすすめの美味しいお店を知りたい方はこちら！
-      </p>
+    <div className={styles.card}>
+      <div>
+        <h2 className={styles.cardTitle}>
+          <Users className={styles.icon} /> 赤羽の美味しいお店
+        </h2>
+        <p className={styles.listItem}>
+          赤羽でおすすめの美味しいお店を知りたい方はこちら！
+        </p>
 
-      <button
-        onClick={fetchRecommendations}
-        disabled={loading}
-        className={`${styles.akabaneButton} ${loading ? styles.loading : ""}`}
-      >
-        {loading ? "読み込み中..." : "おすすめのお店を教えて！"}
-      </button>
+        <button
+          onClick={fetchRecommendations}
+          disabled={loading}
+          className={`${styles.akabaneButton} ${loading ? styles.loading : ""}`}
+        >
+          {loading ? "読み込み中..." : "おすすめのお店を教えて！"}
+        </button>
 
-      {error && (
-        <p className={styles.akabaneError}>エラーが発生しました: {error}</p>
-      )}
+        {error && (
+          <p className={styles.akabaneError}>エラーが発生しました: {error}</p>
+        )}
 
-      {response && (
-        <div className={styles.akabaneResponse}>
-          <h2>おすすめのお店:</h2>
-          <p>{response}</p>
-        </div>
-      )}
+        {response && (
+          <div className={styles.akabaneResponse}>
+            <h2>おすすめのお店:</h2>
+            <p>{response}</p>
+          </div>
+        )}
+      </div>
     </div>
   );
 };
