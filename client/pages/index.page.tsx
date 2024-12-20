@@ -1,4 +1,4 @@
-import { Bell, Book, HelpCircle, Users } from "lucide-react";
+import { Bell, Book, HelpCircle } from "lucide-react";
 import Link from "next/link";
 import { useState } from "react";
 import styles from "./index.module.css";
@@ -41,9 +41,6 @@ export default function AIHousePortal() {
             <Meal />
 
             <div className={styles.card}>
-              <h2 className={styles.cardTitle}>
-                <Users className={styles.icon} /> 赤羽の美味しいお店
-              </h2>
               <AkabaneRecommendations />
             </div>
 

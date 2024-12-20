@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import styles from "./Akabane.module.css";
 import { apiClient } from "utils/apiClient";
+import { Users } from "lucide-react";
 
 const AkabaneRecommendations: React.FC = () => {
   const [loading, setLoading] = useState(false);
@@ -30,8 +31,13 @@ const AkabaneRecommendations: React.FC = () => {
   };
 
   return (
-    <div className={styles.akabaneContainer}>
-      <p>赤羽でおすすめの美味しいお店を知りたい方はこちら！</p>
+    <div>
+      <h2 className={styles.cardTitle}>
+        <Users className={styles.icon} /> 赤羽の美味しいお店
+      </h2>
+      <p className={styles.listItem}>
+        赤羽でおすすめの美味しいお店を知りたい方はこちら！
+      </p>
 
       <button
         onClick={fetchRecommendations}
