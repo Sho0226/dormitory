@@ -1,0 +1,65 @@
+.loginForm {
+  padding: 20px;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgb(0 0 0 / 10%);
+}
+
+.mainTitle {
+  font-size: 1.25rem;
+  font-weight: 700;
+}
+
+.button {
+  display: block;
+  width: 100%;
+  padding: 0.75rem;
+  margin-top: 0.75rem;
+  font-size: 1rem;
+  color: white;
+  cursor: pointer;
+  background-color: #1e40af;
+  border: none;
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
+}
+
+.button:hover,
+.button:focus {
+  background-color: #1e3a8a;
+}
+
+.linkButton {
+  font-weight: bold;
+  color: #0070f3;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.linkButton:hover {
+  color: #005bb5;
+}
+
+.secondaryButton {
+  padding: 12px 20px; /* 上下・左右の余白 */
+  margin-top: 20px; /* 上側の余白 */
+  font-size: 16px; /* フォントサイズ */
+  font-weight: bold; /* 太字 */
+  color: #fff; /* 白文字 */
+  cursor: pointer; /* クリックできることを示す */
+  background-color: #0073e6; /* 鮮やかなブルー */
+  border: none;
+  border-radius: 8px; /* 角丸 */
+  transition:
+    background-color 0.3s,
+    box-shadow 0.3s; /* なめらかなホバー効果 */
+}
+
+.secondaryButton:hover {
+  background-color: #005bb5; /* ホバー時に少し濃いブルー */
+  box-shadow: 0 4px 6px rgb(0 0 0 / 20%); /* 軽い影を追加 */
+}
+
+.secondaryButton:focus {
+  outline: 3px solid #80bfff; /* フォーカス時の視認性向上 */
+}

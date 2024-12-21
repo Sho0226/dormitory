@@ -1,15 +1,46 @@
-.akabaneContainer {
-  padding: 20px;
-  font-family: Arial, sans-serif;
+.card {
+  margin-bottom: 1rem;
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgb(0 0 0 / 10%);
+}
+
+.cardTitle {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: #1e40af;
+}
+
+.icon {
+  width: 1.125rem;
+  height: 1.125rem;
+}
+
+.listItem {
+  padding: 0.75rem 0;
+  font-size: 0.875rem;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.listItem:last-child {
+  border-bottom: none;
 }
 
 .akabaneButton {
-  padding: 10px 20px;
-  color: #fff;
+  display: block;
+  width: 100%;
+  padding: 0.75rem;
+  margin-top: 0.75rem;
+  font-size: 1rem;
+  color: white;
   cursor: pointer;
   background-color: #1e40af;
   border: none;
-  border-radius: 5px;
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
 }
 
 .akabaneButton.loading {
@@ -25,4 +56,14 @@
 .akabaneResponse {
   margin-top: 20px;
   white-space: pre-wrap;
+}
+
+@media (width >= 640px) {
+  .card {
+    margin-bottom: 2rem;
+  }
+
+  .cardTitle {
+    font-size: 1.25rem;
+  }
 }

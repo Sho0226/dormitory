@@ -24,47 +24,6 @@
   font-weight: 700;
 }
 
-.menuButton {
-  padding: 0.5rem;
-  font-size: 1.5rem;
-  color: white;
-  cursor: pointer;
-  background: none;
-  border: none;
-}
-
-.menuIcon {
-  width: 1.5rem;
-  height: 1.5rem;
-}
-
-.nav {
-  position: absolute;
-  top: 100%;
-  right: 0;
-  left: 0;
-  z-index: 999;
-  display: none;
-  flex-direction: column;
-  background-color: #1e3a8a;
-}
-
-.navOpen {
-  display: flex;
-}
-
-.navLink {
-  padding: 1rem;
-  font-size: 1rem;
-  color: white;
-  text-decoration: none;
-  border-bottom: 1px solid rgb(255 255 255 / 10%);
-}
-
-.navLink:last-child {
-  border-bottom: none;
-}
-
 .main {
   flex-grow: 1;
   padding: 1rem;
@@ -107,108 +66,6 @@
   border-bottom: none;
 }
 
-.facilityGrid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 0.75rem;
-}
-
-.facilityButton {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  height: auto;
-  aspect-ratio: 1 / 1;
-  padding: 0.75rem;
-  font-size: 0.75rem;
-  cursor: pointer;
-  background-color: #e2e8f0;
-  border: none;
-  border-radius: 8px;
-  transition: background-color 0.3s ease;
-}
-
-.facilityButton:hover,
-.facilityButton:focus {
-  background-color: #cbd5e1;
-}
-
-.facilityIcon {
-  width: 1.5rem;
-  height: 1.5rem;
-  margin-bottom: 0.25rem;
-}
-
-.facilityName {
-  text-align: center;
-  word-break: break-word;
-}
-
-.note {
-  margin-top: 0.75rem;
-  font-size: 0.75rem;
-  color: #64748b;
-}
-
-.button {
-  display: block;
-  width: 100%;
-  padding: 0.75rem;
-  margin-top: 0.75rem;
-  font-size: 1rem;
-  color: white;
-  cursor: pointer;
-  background-color: #1e40af;
-  border: none;
-  border-radius: 4px;
-  transition: background-color 0.3s ease;
-}
-
-.button:hover,
-.button:focus {
-  background-color: #1e3a8a;
-}
-
-.secondaryButton {
-  padding: 12px 20px; /* 上下・左右の余白 */
-  margin-top: 20px; /* 上側の余白 */
-  font-size: 16px; /* フォントサイズ */
-  font-weight: bold; /* 太字 */
-  color: #fff; /* 白文字 */
-  cursor: pointer; /* クリックできることを示す */
-  background-color: #0073e6; /* 鮮やかなブルー */
-  border: none;
-  border-radius: 8px; /* 角丸 */
-  transition:
-    background-color 0.3s,
-    box-shadow 0.3s; /* なめらかなホバー効果 */
-}
-
-.secondaryButton:hover {
-  background-color: #005bb5; /* ホバー時に少し濃いブルー */
-  box-shadow: 0 4px 6px rgb(0 0 0 / 20%); /* 軽い影を追加 */
-}
-
-.secondaryButton:focus {
-  outline: 3px solid #80bfff; /* フォーカス時の視認性向上 */
-}
-
-.outlineButton {
-  color: #1e40af;
-  background-color: transparent;
-  border: 1px solid #1e40af;
-}
-
-.outlineButton:hover,
-.outlineButton:focus {
-  background-color: rgb(30 64 175 / 10%);
-}
-
-.rulesList {
-  margin-bottom: 1rem;
-}
-
 .footer {
   padding: 1rem;
   font-size: 0.75rem;
@@ -217,59 +74,7 @@
   background-color: #1e40af;
 }
 
-.floorSelection,
-.isActive {
-  display: flex;
-  justify-content: space-around;
-  margin-bottom: 20px;
-}
-
-.floorButton {
-  padding: 10px 20px;
-  cursor: pointer;
-  background-color: #f0f0f0;
-  border: 1px solid #ddd;
-  border-radius: 5px;
-}
-
-.floorButton:hover {
-  background-color: #e0e0e0;
-}
-
-.activeFloor {
-  color: white;
-  background-color: #0070f3;
-}
-
-.notActive {
-  display: none;
-}
-
 @media (width >= 640px) {
-  .header {
-    padding: 1rem;
-  }
-
-  .mainTitle {
-    font-size: 1.5rem;
-  }
-
-  .menuButton {
-    display: none;
-  }
-
-  .nav {
-    position: static;
-    display: flex;
-    flex-direction: row;
-    background-color: transparent;
-  }
-
-  .navLink {
-    padding: 0.5rem 1rem;
-    border-bottom: none;
-  }
-
   .main {
     max-width: 768px;
     padding: 2rem;
@@ -288,37 +93,7 @@
     font-size: 1rem;
   }
 
-  .facilityGrid {
-    grid-template-columns: repeat(3, 1fr);
-  }
-
-  .facilityButton {
-    font-size: 0.875rem;
-  }
-
-  .note {
-    font-size: 0.875rem;
-  }
-
   .footer {
     font-size: 0.875rem;
   }
-}
-
-.loginForm {
-  padding: 20px;
-  background-color: #f9f9f9;
-  border-radius: 8px;
-  box-shadow: 0 4px 6px rgb(0 0 0 / 10%);
-}
-
-.linkButton {
-  font-weight: bold;
-  color: #0070f3;
-  text-decoration: none;
-  transition: color 0.3s ease;
-}
-
-.linkButton:hover {
-  color: #005bb5;
 }
