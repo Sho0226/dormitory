@@ -36,8 +36,10 @@ function Floor() {
           ))}
         </div>
         {["2F", "3F", "4F", "5F"].map((floor) => (
-          <div className={`${floor} ${getClassName(selectedFloor, floor)}`}>
-            {/*  選択した階に応じた部屋を表示  */}
+          <div
+            key={floor}
+            className={`${floor} ${getClassName(selectedFloor, floor)}`}
+          >
             {roomsByFloor[selectedFloor].map((room, index) => (
               <button
                 key={`${selectedFloor}-${index}`}
@@ -49,7 +51,6 @@ function Floor() {
             ))}
           </div>
         ))}
-        {/* 常に表示されるAI-StudioとMusic Room  */}
         <div className={styles.floorSelection}>
           <button className={styles.facilityButton}>
             <Video className={styles.facilityIcon} />

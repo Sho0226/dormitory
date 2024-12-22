@@ -8,7 +8,6 @@ import Floor from "components/Floor/Floor";
 import Meal from "components/Meal/Meal";
 import Rule from "components/RuleHighlight/Rule";
 
-//eslint-disable-next-line
 export default function AIHousePortal() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
 
