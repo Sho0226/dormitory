@@ -21,11 +21,32 @@ export default function AIHousePortal() {
   const [selectedFloor, setSelectedFloor] = useState('2F');
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
 
-  const roomsByFloor: { [key: string]: string[] } = {
-    '2F': ['tamokuteki1', 'tamokuteki2', 'study1', 'study2'],
-    '3F': ['tamokuteki1', 'tamokuteki2', 'study1', 'study2'],
-    '4F': ['tamokuteki1', 'tamokuteki2', 'study1', 'study2'],
-    '5F': ['tamokuteki1', 'tamokuteki2', 'study1', 'study2'],
+
+  const roomsByFloor: { [key: string]: { name: string; url: string }[] } = {
+    '2F': [
+      { name: 'tamokuteki1', url: 'https://docs.google.com/forms/d/1pby8T8OHJFTaU8eJLjFqUK7VXFnexKDsty8hrxS2osA/edit' },
+      { name: 'tamokuteki2', url: 'https://docs.google.com/forms/d/1wL-meG9z7JsajwlBVNs59d8vNW62kQ_PFziOJx5vpOk/edit' },
+      { name: 'study1', url: 'https://docs.google.com/forms/d/1ybgU0g83dxo532svQwoarlYohYnpz2NsD67tIx9X_ug/edit' },
+      { name: 'study2', url: 'https://docs.google.com/forms/d/1rTOkAkuLmJaLhyXheUurmBTcU-UwKCKyz0iNYvXKJFI/edit' },
+    ],
+    '3F': [
+      { name: 'tamokuteki1', url: 'https://docs.google.com/forms/d/e/1FAIpQLSdAQDlIkv7qL13JYnkUFKgXunIK18CEMNVgFpXRVcSFh5mHbg/viewform' },
+      { name: 'tamokuteki2', url: 'https://docs.google.com/forms/d/e/1FAIpQLSdGDN5OChC4WxWq5_z9OzjYJ12P8bo4G63AV2vPGSu8Arm6jQ/viewform' },
+      { name: 'study1', url: 'https://docs.google.com/forms/d/e/1FAIpQLSeUk1jdnvE9A4IMK-uOks9DkXVDb8hPmj32IOklfgBu-NawWA/viewform' },
+      { name: 'study2', url: 'https://docs.google.com/forms/d/e/1FAIpQLSdLkgWD7-OgsqwwN_0zmrbINR5ICZRG9vb8fEoZ6dGUpBVAyQ/viewform' },
+    ],
+    '4F': [
+      { name: 'tamokuteki1', url: 'https://docs.google.com/forms/d/1OsfZtNlfK2Gms9nrlnQsEKYlfyNxG6JRR1z8kYogOLo/edit' },
+      { name: 'tamokuteki2', url: 'https://docs.google.com/forms/d/1DM2prD4anLzi2V54j1Nw3Nu58pP25ZF601OXEPNG5wo/edit' },
+      { name: 'study1', url: 'https://docs.google.com/forms/d/1Q7tt0W5wXoBZWY0Y5_OgLX-yv-YeWr3yz87MorFOFsE/edit' },
+      { name: 'study2', url: 'https://docs.google.com/forms/d/1cg1ko1flwgNeffOsFFojr3h4qItV-XHlij0nFFONg_Y/edit' },
+    ],
+    '5F': [
+      { name: 'tamokuteki1', url: 'https://docs.google.com/forms/d/1Jx-zP3R14KRZoP2oSqhp1fYVHDJ8AXmBon80o_Hhyds/edit' },
+      { name: 'tamokuteki2', url: 'https://docs.google.com/forms/d/1sIU7tQrD88wA9d1S3rhMLkVjLqtI6ca3MrofEzvEFrw/edit' },
+      { name: 'study1', url: 'https://docs.google.com/forms/d/1UyjN74ViE6DK0h-FsXzGGdqo5EASL7_tIqA3xjgQSig/edit' },
+      { name: 'study2', url: 'https://docs.google.com/forms/d/1cCRAnF8kBSD4TA8pPzHOBLowlVDB2UpJa7SYPV7A4_s/edit' },
+    ],
   };
 
   return (
@@ -88,21 +109,18 @@ export default function AIHousePortal() {
           <div className={styles.facilityGrid}>
             {/* 選択した階に応じた部屋を表示 */}
             {roomsByFloor[selectedFloor].map((room) => (
-              <button key={room} className={styles.facilityButton}>
+              <a
+                key={room.name}
+                href={room.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className={styles.facilityButton}
+              >
                 <Users className={styles.facilityIcon} />
-                <span className={styles.facilityName}>{room}</span>
-              </button>
+                <span className={styles.facilityName}>{room.name}</span>
+              </a>
             ))}
 
-            {/* 常に表示されるAI-StudioとMusic Room */}
-            <button className={styles.facilityButton}>
-              <Video className={styles.facilityIcon} />
-              <span className={styles.facilityName}>AI-Studio</span>
-            </button>
-            <button className={styles.facilityButton}>
-              <Music className={styles.facilityIcon} />
-              <span className={styles.facilityName}>Music Room</span>
-            </button>
           </div>
           <p className={styles.note}>※予約できる部屋は最大２時間使える(目安)</p>
           <button
@@ -198,7 +216,7 @@ export default function AIHousePortal() {
             <li className={styles.listItem}>施設・設備について</li>
             <li className={styles.listItem}>教育プログラムについて</li>
           </ul>
-          <Link href="https://toyo.749.cc/inquiry/ai-house-inquiry/">
+          <Link href="https://docs.google.com/forms/d/1Ns6fjpilKiGcxBmMMi1kscd-0rcyBezzEpywZYGqMRU/edit">
             <button className={styles.button}>お問い合わせフォーム</button>
           </Link>
           <Link href="/faq">
