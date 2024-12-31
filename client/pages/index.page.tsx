@@ -7,6 +7,7 @@ import PortalHeader from "components/Header/PortalHeader";
 import Floor from "components/Floor/Floor";
 import Meal from "components/Meal/Meal";
 import Rule from "components/RuleHighlight/Rule";
+import InquiryFaq from "components/InquiryFaq/InquiryFaq";
 
 export default function AIHousePortal() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -40,6 +41,7 @@ export default function AIHousePortal() {
             <Meal />
             <AkabaneRecommendations />
             <Rule />
+            <InquiryFaq />
           </main>
           <footer className={styles.footer}>
             &copy; 2024 AI House. For residents' use only.
