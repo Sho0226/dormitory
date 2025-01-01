@@ -41,7 +41,7 @@ export default function RuleBook() {
           <ChevronLeft className={styles.icon} />
           戻る
         </button>
-        <h1 className={styles.title}>AI-House HUB-4 宿舎ガイドブック</h1>
+        <h1 className={styles.title}>{"AI-House HUB-4\n宿舎ガイドブック"}</h1>
       </header>
 
       <nav className={styles.toc}>
