@@ -44,7 +44,7 @@ export default function AIHousePortal() {
             <InquiryFaq />
           </main>
           <footer className={styles.footer}>
-            &copy; 2024 AI House. For residents' use only.
+            &copy; 2025 AI House. For residents' use only.
           </footer>
         </>
       )}

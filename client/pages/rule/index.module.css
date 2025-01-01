@@ -2,7 +2,7 @@
   max-width: 800px;
   padding: 20px;
   margin: 0 auto;
-  font-family: 'Noto Sans JP', sans-serif;
+  font-family: "Noto Sans JP", sans-serif;
   line-height: 1.6;
   color: #333;
 }
@@ -12,6 +12,7 @@
   font-size: 24px;
   font-weight: bold;
   text-align: center;
+  white-space: pre-wrap;
 }
 
 .toc {

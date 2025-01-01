@@ -16,7 +16,7 @@ function Rule() {
           来客制限：共用エリアのみ（要事前申請）
         </li>
       </ul>
-      <Link href="/rules">
+      <Link href="/rule">
         <button className={`${styles.button} ${styles.outlineButton}`}>
           寮則全文を見る
         </button>
