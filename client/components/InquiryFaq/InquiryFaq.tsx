@@ -21,8 +21,7 @@ function InquiryFaq() {
         className={styles.button}
         onClick={() =>
           window.open(
-            "https://docs.google.com/forms/d/e/1FAIpQLSd14yq1hROVw4VX5g38JBcxUdjLKPugGD2hWRKu3wsVQiWqDQ/viewform",
-            "_blank",
+            "https://docs.google.com/forms/d/1Ns6fjpilKiGcxBmMMi1kscd-0rcyBezzEpywZYGqMRU/viewform?edit_requested=true",
           )
         }
       >
