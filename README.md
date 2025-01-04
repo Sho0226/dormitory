@@ -1,18 +1,17 @@
-# C A T A P U L T
+# プロジェクト概要
 
-aspida と frourio を用いた TypeScript フルスタックテンプレート
+このプロジェクトは、aspida と frourio を用いた TypeScript フルスタックテンプレートです。
 
-- Frontend: Next.js
-- Backend: Fastify
+- フロントエンド: Next.js
+- バックエンド: Fastify
 - ORM: Prisma + PostgreSQL
-- Auth: AWS Cognito
-- Object Storage: AWS S3 or Cloudflare R2
+- 認証: AWS Cognito
+- オブジェクトストレージ: AWS S3 または Cloudflare R2
 - 関数型ドメイン駆動設計
 - 全ての関数に依存性注入が可能
 - 3rd Party Cookie なし
 - Docker コンテナー1つだけでデプロイ
 - ローカル開発は Node.js + Docker Compose で完結
-- 最新コミットのデモ: https://catapult.frourio.com
 
 ## 開発手順
 
@@ -121,3 +120,31 @@ http://localhost:9001
 $ cd server
 $ npx prisma studio
 ```
+
+## フロントエンドの機能
+
+- カレンダー
+- 施設予約
+- 食事関連
+- 赤羽の美味しいお店
+- 寮則ハイライト
+- お問い合わせ&FAQ
+
+## バックエンドの機能
+
+- ユーザー認証
+- データベース操作
+- 外部API連携
+- ヘルスチェックエンドポイント
+
+## 使用技術
+
+- TypeScript
+- Next.js
+- Fastify
+- Prisma
+- PostgreSQL
+- AWS Cognito
+- AWS S3 / Cloudflare R2
+- Docker
+- Docker Compose
