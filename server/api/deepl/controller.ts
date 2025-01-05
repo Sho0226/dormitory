@@ -3,10 +3,17 @@ import { defineController } from "./$relay";
 
 export default defineController(() => ({
   get: async ({ query }) => {
-    const { text, targetLanguage } = query;
+    const { text, target_lang } = query;
+
     try {
-      const translatedText = await translateText(text, targetLanguage);
-      return { status: 200, body: translatedText };
+      const texts = Array.isArray(text) ? text : [text];
+      const translatedTexts = await translateText(texts, target_lang);
+
+      // フロントエンドが期待する形式に整形
+      return {
+        status: 200,
+        body: { translations: translatedTexts.map((t) => ({ text: t })) },
+      };
     } catch (error) {
       const errorMessage =
         error instanceof Error ? error.message : "Unknown error";

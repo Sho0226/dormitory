@@ -44,24 +44,23 @@ export const LanguageSwitcher = () => {
 
   const translatePage = async (targetLanguage: deepl.TargetLanguageCode) => {
     const textNodes = getTextNodes();
+    const textsToTranslate = textNodes.map((node) => node.nodeValue || "");
 
-    for (const node of textNodes) {
-      try {
-        const response = await apiClient.deepl.get({
-          query: {
-            text: node.nodeValue || "",
-            targetLanguage,
-          },
-        });
-        //eslint-disable-next-line
-        if (response.body) {
-          node.nodeValue = response.body; // 翻訳されたテキストで置き換え
-        } else {
-          console.warn("No translation received for:", node.nodeValue);
-        }
-      } catch (error) {
-        console.error("Translation error:", error);
-      }
+    try {
+      // 一括で翻訳リクエストを送信
+      const response = await apiClient.deepl.$get({
+        query: {
+          text: textsToTranslate,
+          target_lang: targetLanguage,
+        },
+      });
+
+      // 修正：response.translations に対して forEach を呼び出す
+      response.translations.forEach((translation, index) => {
+        textNodes[index].nodeValue = translation.text;
+      });
+    } catch (error) {
+      console.error("Translation error:", error);
     }
   };
 
