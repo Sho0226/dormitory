@@ -4,13 +4,13 @@ import * as deepl from "deepl-node";
 const translator = new deepl.Translator(DeepL_KEY);
 
 export const translateText = async (
-  text: string,
+  text: string[],
   targetLang: deepl.TargetLanguageCode,
-): Promise<string> => {
+): Promise<string[]> => {
   try {
     const result = await translator.translateText(text, null, targetLang);
     console.log("API response:", result);
-    return result.text;
+    return result.map((r) => r.text);
   } catch (error) {
     const errorMessage =
       error instanceof Error ? error.message : "Unknown error";
