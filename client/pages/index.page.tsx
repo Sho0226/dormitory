@@ -7,7 +7,7 @@ import Floor from "components/Floor/Floor";
 import Meal from "components/Meal/Meal";
 import Rule from "components/RuleHighlight/Rule";
 import InquiryFaq from "components/InquiryFaq/InquiryFaq";
-import { Calendar } from "components/Calendar/Calendar";
+import { CalendarCard } from "components/Calendar/Calendar";
 
 export default function AIHousePortal() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -20,7 +20,7 @@ export default function AIHousePortal() {
         <>
           <PortalHeader />
           <main className={styles.main}>
-            <Calendar />
+            <CalendarCard />
             <Floor />
             <Meal />
             <AkabaneRecommendations />

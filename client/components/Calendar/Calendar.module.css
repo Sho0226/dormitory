@@ -37,3 +37,10 @@
 .button:focus {
   background-color: #1e3a8a;
 }
+
+.calendarWrapper {
+  padding: 16px;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgb(0 0 0 / 10%);
+}

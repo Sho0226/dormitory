@@ -1,14 +1,21 @@
-.icon {
-  width: 24px;
-  height: 24px;
-}
-
 .backButton {
   display: flex;
   align-items: center;
-  font-size: 1.2rem;
-  color: black;
+  width: fit-content;
+  padding: 8px;
+  margin-bottom: 16px;
   cursor: pointer;
-  background: none;
-  border: none;
+}
+
+.icon {
+  width: 24px;
+  height: 24px;
+  margin-right: 4px;
+}
+
+.calendarWrapper {
+  padding: 16px;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgb(0 0 0 / 10%);
 }
