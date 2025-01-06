@@ -1,4 +1,3 @@
-import { Bell } from "lucide-react";
 import { useState } from "react";
 import styles from "./index.module.css";
 import AkabaneRecommendations from "components/Akabane/Akabane";
@@ -8,6 +7,7 @@ import Floor from "components/Floor/Floor";
 import Meal from "components/Meal/Meal";
 import Rule from "components/RuleHighlight/Rule";
 import InquiryFaq from "components/InquiryFaq/InquiryFaq";
+import { Calendar } from "components/Calendar/Calendar";
 
 export default function AIHousePortal() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -20,23 +20,7 @@ export default function AIHousePortal() {
         <>
           <PortalHeader />
           <main className={styles.main}>
-            <div className={styles.card}>
-              <h2 className={styles.cardTitle}>
-                <Bell className={styles.icon} />
-                重要なお知らせ
-              </h2>
-              <ul className={styles.list}>
-                <li className={styles.listItem}>
-                  期末試験の静粛時間について（6/1-6/14）
-                </li>
-                <li className={styles.listItem}>
-                  夏季休暇中の寮の利用について
-                </li>
-                <li className={styles.listItem}>
-                  新入寮生歓迎会のお知らせ（4/10）
-                </li>
-              </ul>
-            </div>
+            <Calendar />
             <Floor />
             <Meal />
             <AkabaneRecommendations />
