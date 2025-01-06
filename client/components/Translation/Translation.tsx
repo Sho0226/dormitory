@@ -7,6 +7,11 @@ interface LanguageOption {
   label: string;
 }
 
+interface TextNode {
+  node: Node;
+  originalText: string;
+}
+
 const languageOptions: LanguageOption[] = [
   { code: "ja", label: "日本語" },
   { code: "en-US", label: "English" },
@@ -17,6 +22,7 @@ const languageOptions: LanguageOption[] = [
 export const LanguageSwitcher = () => {
   const [selectedLanguage, setSelectedLanguage] =
     useState<deepl.TargetLanguageCode>("ja");
+  const [textNodeMap] = useState<Map<Node, string>>(new Map());
 
   const handleLanguageChange = (
     event: React.ChangeEvent<HTMLSelectElement>,
@@ -25,29 +31,44 @@ export const LanguageSwitcher = () => {
     setSelectedLanguage(newLanguage);
     translatePage(newLanguage);
   };
-
-  const getTextNodes = (): Node[] => {
+  //eslint-disable-next-line
+  const getTextNodes = (): TextNode[] => {
     const walker = document.createTreeWalker(
       document.body,
       NodeFilter.SHOW_TEXT,
       null,
     );
-    const textNodes: Node[] = [];
+    const textNodes: TextNode[] = [];
     let node;
     while ((node = walker.nextNode())) {
       if (node.nodeValue?.trim()) {
-        textNodes.push(node);
+        // 初回の場合、オリジナルテキストを保存
+        //eslint-disable-next-line
+        if (!textNodeMap.has(node)) {
+          textNodeMap.set(node, node.nodeValue || "");
+        }
+        textNodes.push({
+          node,
+          originalText: textNodeMap.get(node) || "",
+        });
       }
     }
     return textNodes;
   };
 
   const translatePage = async (targetLanguage: deepl.TargetLanguageCode) => {
+    if (targetLanguage === "ja") {
+      const textNodes = getTextNodes();
+      textNodes.forEach(({ node, originalText }) => {
+        node.nodeValue = originalText;
+      });
+      return;
+    }
     const textNodes = getTextNodes();
-    const textsToTranslate = textNodes.map((node) => node.nodeValue || "");
+    // 常に原文から翻訳
+    const textsToTranslate = textNodes.map(({ originalText }) => originalText);
 
     try {
-      // 一括で翻訳リクエストを送信
       const response = await apiClient.deepl.$get({
         query: {
           text: textsToTranslate,
@@ -55,9 +76,8 @@ export const LanguageSwitcher = () => {
         },
       });
 
-      // 修正：response.translations に対して forEach を呼び出す
       response.translations.forEach((translation, index) => {
-        textNodes[index].nodeValue = translation.text;
+        textNodes[index].node.nodeValue = translation.text;
       });
     } catch (error) {
       console.error("Translation error:", error);
