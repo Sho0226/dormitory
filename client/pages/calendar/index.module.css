@@ -1,0 +1,14 @@
+.icon {
+  width: 24px;
+  height: 24px;
+}
+
+.backButton {
+  display: flex;
+  align-items: center;
+  font-size: 1.2rem;
+  color: black;
+  cursor: pointer;
+  background: none;
+  border: none;
+}
