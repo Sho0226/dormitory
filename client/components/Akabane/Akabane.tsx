@@ -31,6 +31,7 @@ const AkabaneRecommendations: React.FC = () => {
   };
 
   return (
+    <div id="restaurant">
     <div className={styles.card}>
       <div>
         <h2 className={styles.cardTitle}>
@@ -59,6 +60,7 @@ const AkabaneRecommendations: React.FC = () => {
           </div>
         )}
       </div>
+    </div>
     </div>
   );
 };
