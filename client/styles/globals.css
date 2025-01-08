@@ -52,3 +52,10 @@ ol {
 ::-webkit-scrollbar-thumb:hover {
   background: #8887;
 }
+button {
+  background-color: transparent;
+  border: none;
+}
+#floor, #restaurant {
+  padding-top:20px;
+}

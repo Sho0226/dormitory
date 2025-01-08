@@ -9,6 +9,13 @@ function PortalHeader() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
 
+  const scroll = (value: string) => {
+    const Element = document.getElementById(value);
+    if (Element) {
+       Element.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
   return (
     <div>
       {" "}
@@ -30,22 +37,30 @@ function PortalHeader() {
             ホームページ
           </Link>
           <Link
-            href="/announcements"
+            href="/"
             className={styles.navLink}
             onClick={toggleMenu}
           >
             お知らせ
           </Link>
-          <Link
-            href="/facilities"
+          <button
             className={styles.navLink}
-            onClick={toggleMenu}
+            onClick={() => {
+              toggleMenu();
+              scroll("floor");
+            }}
           >
             施設予約
-          </Link>
-          <Link href="/events" className={styles.navLink} onClick={toggleMenu}>
-            イベント
-          </Link>
+          </button>
+          <button
+            className={styles.navLink}
+            onClick={() => {
+              toggleMenu();
+              scroll("restaurant");
+            }}
+            >
+            お店
+          </button>
           <Link href="/rule" className={styles.navLink} onClick={toggleMenu}>
             寮則
           </Link>

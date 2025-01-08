@@ -85,7 +85,7 @@ function Floor() {
   };
 
   return (
-    <div>
+    <div id="floor">
       <div className={styles.card}>
         <h2 className={styles.cardTitle}>
           <Calendar className={styles.icon} />
