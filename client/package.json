@@ -24,6 +24,7 @@
     "@aspida/axios": "^1.14.0",
     "@aspida/swr": "^1.14.0",
     "@aws-amplify/ui-react": "^6.2.0",
+    "@fullcalendar/core": "^6.1.15",
     "@fullcalendar/daygrid": "^6.1.15",
     "@fullcalendar/interaction": "^6.1.15",
     "@fullcalendar/react": "^6.1.15",
