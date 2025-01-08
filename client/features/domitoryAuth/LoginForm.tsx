@@ -3,9 +3,7 @@ import styles from "./Auth.module.css";
 
 interface LoginFormProps {
   loginFormData: {
-    name: string;
     roomNumber: string;
-    password: string;
     studentID: string;
   };
   handleLogin: (e: React.FormEvent<HTMLFormElement>) => void;
@@ -20,16 +18,8 @@ const LoginForm: React.FC<LoginFormProps> = ({
   <form onSubmit={handleLogin}>
     <input
       type="text"
-      name="name"
-      placeholder="名前"
-      value={loginFormData.name}
-      onChange={handleLoginInputChange}
-      required
-    />
-    <input
-      type="text"
       name="roomNumber"
-      placeholder="部屋番号"
+      placeholder="部屋番号/Room Number"
       value={loginFormData.roomNumber}
       onChange={handleLoginInputChange}
       required
@@ -37,19 +27,12 @@ const LoginForm: React.FC<LoginFormProps> = ({
     <input
       type="text"
       name="studentID"
-      placeholder="学籍番号"
+      placeholder="学籍番号/Student ID"
       value={loginFormData.studentID}
       onChange={handleLoginInputChange}
       required
     />
-    <input
-      type="password"
-      name="password"
-      placeholder="パスワード"
-      value={loginFormData.password}
-      onChange={handleLoginInputChange}
-      required
-    />
+    <p>※学籍番号は10桁です。Student ID number is 10 digits.</p>
     <button type="submit" className={styles.button}>
       ログイン
     </button>
