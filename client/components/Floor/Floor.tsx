@@ -119,16 +119,7 @@ function Floor() {
             ))}
           </div>
         ))}
-        <div className={styles.floorSelection}>
-          <button className={styles.facilityButton}>
-            <Video className={styles.facilityIcon} />
-            <span className={styles.facilityName}>AI-Studio</span>
-          </button>
-          <button className={styles.facilityButton}>
-            <Music className={styles.facilityIcon} />
-            <span className={styles.facilityName}>Music Room</span>
-          </button>
-        </div>
+
         <p className={styles.note}>※予約できる部屋は最大２時間使える(目安)</p>
         <button
           className={styles.button}
