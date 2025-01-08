@@ -12,7 +12,7 @@ function PortalHeader() {
   const scroll = (value: string) => {
     const Element = document.getElementById(value);
     if (Element) {
-       Element.scrollIntoView({ behavior: "smooth" });
+      Element.scrollIntoView({ behavior: "smooth" });
     }
   };
 
@@ -36,11 +36,7 @@ function PortalHeader() {
           >
             ホームページ
           </Link>
-          <Link
-            href="/"
-            className={styles.navLink}
-            onClick={toggleMenu}
-          >
+          <Link href="/" className={styles.navLink} onClick={toggleMenu}>
             お知らせ
           </Link>
           <button
@@ -58,7 +54,7 @@ function PortalHeader() {
               toggleMenu();
               scroll("restaurant");
             }}
-            >
+          >
             お店
           </button>
           <Link href="/rule" className={styles.navLink} onClick={toggleMenu}>
