@@ -1,4 +1,4 @@
-export const APP_NAME = "DOMITORY";
+export const APP_NAME = "AI House Portal";
 
 export const ID_NAME_LIST = ["user", "task"] as const;
 

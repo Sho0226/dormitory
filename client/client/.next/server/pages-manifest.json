@@ -1,1 +1,7 @@
-{"/calendar":"pages/calendar.html","/docs":"pages/docs.html","/faq":"pages/faq.html","/":"pages/index.html","/login":"pages/login.html","/rule":"pages/rule.html","/_error":"pages/_error.js","/_document":"pages/_document.js","/_app":"pages/_app.js","/404":"pages/404.html"}
+{
+  "/_app": "pages/_app.js",
+  "/_error": "pages/_error.js",
+  "/_document": "pages/_document.js",
+  "/": "pages/index.js",
+  "/rule": "pages/rule.js"
+}
