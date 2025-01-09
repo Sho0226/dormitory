@@ -16,7 +16,7 @@ export const Auth: React.FC<AuthProps> = ({ setIsLoggedIn }) => {
   const handleLogin = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const roomNumberRegex = /^[2-6][A-Z][0-1][0-9]$/;
-    const studentIDRegex = /^\d{10}$/; // 10桁の数字のみを許可
+    const studentIDRegex = /^[a-zA-Z0-9]{10}$/;
 
     if (!roomNumberRegex.test(loginFormData.roomNumber)) {
       setError("部屋番号が間違っています。Wrong room number.");
