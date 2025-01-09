@@ -150,7 +150,7 @@ export default function RuleBook() {
           ストリートビューで実際に訪れた気分を味わってみてください。
         </p>
         <Link
-          href="https://www.google.com/maps/@35.7802696,139.7172885,3a,90y,313.38h,75.35t/data=!3m6!1e1!3m4!1sfB40omRfWFbYKzRQF-J6Ig!2e0!7i16384!8i8192"
+          href={"https://maps.app.goo.gl/8nfPHHBbHZ25XYT48"}
           className={styles.link}
         >
           Googleマップで見る
