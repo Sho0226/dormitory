@@ -22,3 +22,5 @@ client/api/*
 server/index.js*
 server/coverage/
 server/api/@openapi*
+
+.next/
