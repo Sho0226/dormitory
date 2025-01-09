@@ -6,8 +6,9 @@
 }
 
 .mainTitle {
-  font-size: 1.25rem;
-  font-weight: 700;
+  margin-top: 10px;
+  font-size: 16px;
+  color: #333;
 }
 
 .error {
