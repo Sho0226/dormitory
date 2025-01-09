@@ -58,6 +58,7 @@ button {
   border: none;
 }
 
-#floor, #restaurant {
-  padding-top:20px;
+#floor,
+#restaurant {
+  padding-top: 20px;
 }
