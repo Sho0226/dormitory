@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import styles from "./Floor.module.css";
-import { Calendar, Music, Users, Video } from "lucide-react";
+import { Calendar, Users } from "lucide-react";
 
 function Floor() {
   const [selectedFloor, setSelectedFloor] = useState("2F");
@@ -119,16 +119,6 @@ function Floor() {
             ))}
           </div>
         ))}
-        <div className={styles.floorSelection}>
-          <button className={styles.facilityButton}>
-            <Video className={styles.facilityIcon} />
-            <span className={styles.facilityName}>AI-Studio</span>
-          </button>
-          <button className={styles.facilityButton}>
-            <Music className={styles.facilityIcon} />
-            <span className={styles.facilityName}>Music Room</span>
-          </button>
-        </div>
         <p className={styles.note}>※予約できる部屋は最大２時間使える(目安)</p>
         <button
           className={styles.button}
