@@ -6,15 +6,22 @@
 }
 
 .mainTitle {
-  font-size: 1.25rem;
-  font-weight: 700;
+  margin-top: 10px;
+  font-size: 16px;
+  color: #333;
 }
 
 .error {
-  color: red;
-  font-size: 14px;
-  margin-top: 10px;
+  color: red; /* エラーメッセージは赤色 */
+  font-size: 14px; /* フォントサイズ */
+  margin-top: 10px; /* 上部の余白 */
+  padding: 10px; /* 余白を加える */
+  border: 1px solid red; /* 赤い枠線を追加 */
+  border-radius: 4px; /* 角を丸くする */
+  background-color: rgba(255, 0, 0, 0.1); /* 赤の背景色を薄くする */
+  text-align: center; /* メッセージを中央揃えに */
 }
+
 
 
 .button {
