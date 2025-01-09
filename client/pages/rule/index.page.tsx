@@ -113,6 +113,13 @@ export default function RuleBook() {
           <li>学部生及び大学院生は最長 2 年間。</li>
           <li>交換留学生は 11 ヵ月以内。</li>
         </ul>
+        <h3>3.2 入居申込・退去</h3>
+        <ul>
+          <li>
+            入居は宿舎ウェブサイトから申請してください。退去は前月 15
+            日までに退去届を提出してください。
+          </li>
+        </ul>
         {/* 他のサブセクションを追加 */}
       </Section>
 
@@ -121,6 +128,7 @@ export default function RuleBook() {
         <ul>
           <li>入寮費：50,000円</li>
           <li>宿舎費：96,000円（一般個室）</li>
+          <li>宿舎費：108,000円（バリアフリー室）</li>
         </ul>
         {/* 他のサブセクションを追加 */}
       </Section>
@@ -183,6 +191,17 @@ export default function RuleBook() {
         </p>
         <p>〒112－8606 東京都文京区白山 5-28-20</p>
         <p>TEL 03-3945-8279 E-MAIL mlidorm@toyo.jp</p>
+        <div className={styles.container}>
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3236.8026966869834!2d139.71484199166304!3d35.78022267733525!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x601893054faae87f%3A0x9e04c9eecc85378e!2sAI-House%20HUB-4!5e0!3m2!1sja!2sjp!4v1734501113517!5m2!1sja!2sjp"
+            width="100%"
+            height="450"
+            style={{ border: 0 }}
+            allowFullScreen={true}
+            loading="lazy"
+            referrerPolicy="no-referrer-when-downgrade"
+          />
+        </div>
       </Section>
     </div>
   );
