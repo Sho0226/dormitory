@@ -1,12 +1,11 @@
 import { useState } from "react";
-import styles from "./Auth.module.css"; // スタイルのインポート
+import styles from "./Auth.module.css";
 import LoginForm from "./LoginForm";
 
 interface AuthProps {
   setIsLoggedIn: (isLoggedIn: boolean) => void;
 }
 
-//eslint-disable-next-line
 export const Auth: React.FC<AuthProps> = ({ setIsLoggedIn }) => {
   const [loginFormData, setLoginFormData] = useState({
     roomNumber: "",
@@ -17,8 +16,7 @@ export const Auth: React.FC<AuthProps> = ({ setIsLoggedIn }) => {
   const handleLogin = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const roomNumberRegex = /^[2-6][A-Z][0-1][0-9]$/;
-    const studentIDRegex =
-      /^(111|112|212|113|114|214|115|116|117|217|118|119|219|11a|11A|121|221|122|123|131|231|132|133|141|241|142|151|251|152|153|253|154|155|181|281|182|1D1|1d1|1D2|1d2|2D2|2d2|1E1|1e1|1A1|1a1|1A2|1a2|1A3|1a3|16A|16a|16B|16b|16C|16c|16D|16d|16E|16e|1B1|1b1|1F1|1f1|191|192|193|1C1|1c1|1C2|1c2|900|901|902)\d{7}$/;
+    const studentIDRegex = /^\d{10}$/; // 10桁の数字のみを許可
 
     if (!roomNumberRegex.test(loginFormData.roomNumber)) {
       setError("部屋番号が間違っています。Wrong room number.");
@@ -31,7 +29,7 @@ export const Auth: React.FC<AuthProps> = ({ setIsLoggedIn }) => {
     }
 
     setError("");
-    setIsLoggedIn(true); // ログイン成功を仮定
+    setIsLoggedIn(true);
   };
 
   const handleLoginInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
