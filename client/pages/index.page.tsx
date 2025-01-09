@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import styles from "./index.module.css";
 import AkabaneRecommendations from "components/Akabane/Akabane";
 import Auth from "features/domitoryAuth/Auth";
@@ -10,7 +10,15 @@ import InquiryFaq from "components/InquiryFaq/InquiryFaq";
 import { CalendarCard } from "components/Calendar/Calendar";
 
 export default function AIHousePortal() {
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [isLoggedIn, setIsLoggedIn] = useState(() => {
+    // 初期値としてlocalStorageの値を使用
+    return localStorage.getItem("isAuthenticated") === "true";
+  });
+
+  useEffect(() => {
+    // ログイン状態が変更されたらlocalStorageを更新
+    localStorage.setItem("isAuthenticated", isLoggedIn.toString());
+  }, [isLoggedIn]);
 
   return (
     <div className={styles.container}>

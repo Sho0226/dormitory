@@ -36,9 +36,6 @@ function PortalHeader() {
           >
             ホームページ
           </Link>
-          <Link href="/" className={styles.navLink} onClick={toggleMenu}>
-            お知らせ
-          </Link>
           <button
             className={styles.navLink}
             onClick={() => {
