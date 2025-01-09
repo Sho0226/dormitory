@@ -63,3 +63,9 @@
 .secondaryButton:focus {
   outline: 3px solid #80bfff; /* フォーカス時の視認性向上 */
 }
+
+.error {
+  margin-top: 10px;
+  font-size: 14px;
+  color: red;
+}
